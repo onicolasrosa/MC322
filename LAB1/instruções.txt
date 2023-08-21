@@ -1,0 +1,20 @@
+A entrega do Laboratório é realizada exclusivamente via Github. Para a submissão no Github,
+gere um release (tag) com a identificação do laboratório no formato <lab01-RA>. Por exemplo,
+para o aluno com RA 123456, a tag será: lab01-123456.
+• Evite criar releases enquanto não tiver certeza que seu código está funcionando como esperado.
+
+
+classes: 
+	defina as principais classes que compoem o sistema de gerenciamento de biblioteca
+
+objetos:
+	Descreva os objetos que você criaria e 
+	como eles se relacionariam com suas classes correspondentes.
+
+construtores:
+	Defina o construtor que seria usado para criar um objeto dessa classe.
+
+
+Por exemplo, o construtor da classe Livro pode aceitar parâmetros como título, autor,
+ISBN, etc.
+

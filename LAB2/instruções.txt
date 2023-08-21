@@ -1,0 +1,23 @@
+A entrega do Laboratório é realizada exclusivamente via Github. Para a submissão no Github,
+gere um release (tag) com a identificação do laboratório no formato <lab01-RA>. Por exemplo,
+para o aluno com RA 123456, a tag será: lab01-123456.
+• Evite criar releases enquanto não tiver certeza que seu código está funcionando como esperado.
+
+
+• Atributos: 
+	Identifique e defina os atributos que compõe cada clase definida no Laboratório 1.
+
+• Tipo de acesso: 
+	Para cada classe definir o tipo de acesso (public, private, protected) dos atributos e métodos.
+
+• Getters e Setters: 
+	Para cada classe definir os Getters e Setters necessários.
+
+• Modularidade: 
+	Aplicar o conceito de Modularidade no desenvolvimento do projeto.
+
+• Você não precisa criar outro repositório ou outro projeto, a ideia é avançar sobre o repositório que
+você já tem.
+• A entrega do Laboratório é realizada exclusivamente via Github. Para a submissão no Github,
+gere um release (tag) com a identificação do laboratório no formato <lab02-RA>. Por exemplo,
+para o aluno com RA 123456, a tag será: lab02-123456.
