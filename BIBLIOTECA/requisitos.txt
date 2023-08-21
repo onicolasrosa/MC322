@@ -1,0 +1,24 @@
+Biblioteca
+    Usuario
+        Nome
+        Cpf
+        Idade
+        Numero
+        Livros reservados
+
+    Funcionario
+        Nome
+        Cpf
+        Idade
+        Numero
+        Cargo
+
+    Livro
+        Titulo
+        Autor
+        Edição
+        Ano de publicação
+        Categoria
+        Situação
+
+
