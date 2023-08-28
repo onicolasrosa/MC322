@@ -73,4 +73,3 @@ public class Livro {
         situacao = "Disponível";
     }
 }
-

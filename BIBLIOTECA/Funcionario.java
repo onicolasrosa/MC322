@@ -55,4 +55,3 @@ public class Funcionario {
         this.cargo = cargo;
     }
 }
-
