@@ -1,6 +1,5 @@
 package auxi.exem;
 
-
 public class Carro {
     private String cor;
     private String modelo;

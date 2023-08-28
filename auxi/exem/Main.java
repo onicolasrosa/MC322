@@ -1,4 +1,4 @@
-package arquivosAuxiliares.exem;
+package auxi.exem;
 
 public class Main {
     public static void main(String[] args) {
