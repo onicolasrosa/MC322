@@ -1,4 +1,4 @@
-package Rascunhos;
+package Exemplos;
 
 public class Main {
     public static void main(String[] args) {

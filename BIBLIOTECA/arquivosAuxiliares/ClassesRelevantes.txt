@@ -4,14 +4,14 @@ Classe Biblioteca contem e manipula as classes abaixo:
 	Atributos:
         	Titulo
         	Autor
+            Categoria
         	Localização
         	Situação
 
         1.1 Subclasse - Livro
             Atributos:
-		Edição
+		        Edição
             	Ano de publicação
-            	Categoria
 
                 Subclasses:
                     1.1.1 Livro Fisico
@@ -20,7 +20,8 @@ Classe Biblioteca contem e manipula as classes abaixo:
 			O construtor dessa classe deve receber um link ao inves de uma instante no atributo localização
 
         1.2 Subclasse Mídia digital (cd ou dvd)
-		Formato do arquivo
+            Atributos:
+                Formato do arquivo
                 Tamanho do arquivo
 
     2 Classe Membro
