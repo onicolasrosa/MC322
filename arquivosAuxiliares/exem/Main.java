@@ -1,4 +1,4 @@
-package Exemplos;
+package arquivosAuxiliares.exem;
 
 public class Main {
     public static void main(String[] args) {

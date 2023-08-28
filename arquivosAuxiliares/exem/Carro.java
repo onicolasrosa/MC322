@@ -1,4 +1,4 @@
-package Exemplos;
+package auxi.exem;
 
 
 public class Carro {
