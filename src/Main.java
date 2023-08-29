@@ -19,6 +19,6 @@ public class Main {
         System.out.println(primeiroDvd.getTitle());
         System.out.println(primeiroDvd.getFormat());
 
-        GraduateStudent lucas = new GraduateStudent()
+        //GraduateStudent lucas = new GraduateStudent();
     }
 }
