@@ -1,4 +1,10 @@
+package src.SistemaLegado;
+/*
 package src;
+
+import src.itensMultimidia.Book;
+import src.itensMultimidia.DigitalMedia;
+import src.itensMultimidia.Item;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,3 +28,4 @@ public class Main {
         //GraduateStudent lucas = new GraduateStudent();
     }
 }
+*/
