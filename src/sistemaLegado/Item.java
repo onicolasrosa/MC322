@@ -1,5 +1,5 @@
-package src.SistemaLegado;
-public class Item {
+package src.sistemaLegado;
+class Item {
     private String title;
     private String author;
     private String category;

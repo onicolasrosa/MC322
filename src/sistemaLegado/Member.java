@@ -1,8 +1,9 @@
-package src.SistemaLegado;
+package src.sistemaLegado;
 
 import java.util.ArrayList;
 import java.util.List;
-import src.SistemaLegado.Item.Book;
+
+import src.sistemaLegado.Item.Book;
 
 class Member {
     private String name;
