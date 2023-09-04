@@ -1,5 +1,4 @@
-package src;
-
+package src.sistemaLegado;
 class Item {
     private String title;
     private String author;
@@ -50,9 +49,7 @@ class Item {
         this.situation = situation;
     }
 
-}
-
-class Book extends Item {
+public class Book extends Item {
     private int edition;
     private int publicationYear;
 
@@ -79,7 +76,7 @@ class Book extends Item {
 
 }
 
-class DigitalMedia extends Item {
+public class DigitalMedia extends Item {
     private String format;
     private float memorySize; //tamanho em Mega Bytes(MB)
 
@@ -103,5 +100,7 @@ class DigitalMedia extends Item {
     public void setMemorySize(float memorySize) {
         this.memorySize = memorySize;
     }
+
+}
 
 }
