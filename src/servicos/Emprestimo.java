@@ -1,4 +1,4 @@
-package src.transacoes;
+package src.servicos;
 
 public class Emprestimo {
     
