@@ -1,13 +1,13 @@
-package src.membros;
+package src.funcionarios;
 
-abstract class Membro {
+abstract class Funcionario {
     private String nome;
     private String ID;
     private String endereco;
     private String contato;
     private String dataRegistro;
 
-    protected Membro(String nome, String ID, String endereco, String contato, String dataRegistro) {
+    protected Funcionario(String nome, String ID, String endereco, String contato, String dataRegistro) {
         this.nome = nome;
         this.ID = ID;
         this.endereco = endereco;

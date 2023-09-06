@@ -4,18 +4,16 @@ public class LivroEletronico extends Item {
     private String formato;
     private int numeroTotalLicencas;
     private String formatoArquivo;
-    private String urlAcesso;
     private String requisitosLeitura;
     private String dataDisponibilidade;
 
     public LivroEletronico(String title, String author, String category, int copiasTotal, int copiasDisponiveis,
                            String estadoConservacao, String formato, int numeroTotalLicencas, String formatoArquivo,
-                           String urlAcesso, String requisitosLeitura, String dataDisponibilidade) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao);
+                            String requisitosLeitura, String dataDisponibilidade, String localizacao) {
+        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
         this.formato = formato;
         this.numeroTotalLicencas = numeroTotalLicencas;
         this.formatoArquivo = formatoArquivo;
-        this.urlAcesso = urlAcesso;
         this.requisitosLeitura = requisitosLeitura;
         this.dataDisponibilidade = dataDisponibilidade;
     }
@@ -42,14 +40,6 @@ public class LivroEletronico extends Item {
 
     public void setFormatoArquivo(String formatoArquivo) {
         this.formatoArquivo = formatoArquivo;
-    }
-
-    public String getUrlAcesso() {
-        return urlAcesso;
-    }
-
-    public void setUrlAcesso(String urlAcesso) {
-        this.urlAcesso = urlAcesso;
     }
 
     public String getRequisitosLeitura() {

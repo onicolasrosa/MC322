@@ -5,17 +5,15 @@ public class LivroFisico extends Item {
     private String edicao;
     private int copiasTotalPorEdicao;
     private int copiasDisponiveisPorEdicao;
-    private String localizacao;
 
     public LivroFisico(String title, String author, String category, int copiasTotal, int copiasDisponiveis,
                        String estadoConservacao, String isbn, String edicao, int copiasTotalPorEdicao,
                        int copiasDisponiveisPorEdicao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao);
+        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
         this.isbn = isbn;
         this.edicao = edicao;
         this.copiasTotalPorEdicao = copiasTotalPorEdicao;
         this.copiasDisponiveisPorEdicao = copiasDisponiveisPorEdicao;
-        this.localizacao = localizacao;
     }
 
     public String getIsbn() {
@@ -48,13 +46,5 @@ public class LivroFisico extends Item {
 
     public void setCopiasDisponiveisPorEdicao(int copiasDisponiveisPorEdicao) {
         this.copiasDisponiveisPorEdicao = copiasDisponiveisPorEdicao;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
     }
 }

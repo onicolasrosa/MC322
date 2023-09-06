@@ -5,14 +5,12 @@ public class RecursoMultimidia extends Item {
     private String formato;
     private int copiasTotal;
     private int copiasDisponiveis;
-    private String localizacao;
 
     public RecursoMultimidia(String title, String author, String category, String tipoRecurso, String formato,
-                             int copiasTotal, int copiasDisponiveis, String localizacao, String estadoConservacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao);
+                             int copiasTotal, int copiasDisponiveis, String estadoConservacao, String localizacao) {
+        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
         this.tipoRecurso = tipoRecurso;
         this.formato = formato;
-        this.localizacao = localizacao;
     }
 
     public String getTipoRecurso() {
@@ -45,13 +43,5 @@ public class RecursoMultimidia extends Item {
 
     public void setCopiasDisponiveis(int copiasDisponiveis) {
         this.copiasDisponiveis = copiasDisponiveis;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
     }
 }

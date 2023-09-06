@@ -1,5 +1,5 @@
-package src.sistemaLegado;
-
+package auxi.sistemaLegado;
+/*
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +47,8 @@ class Member {
     public void setMaxBooksForReservation(int maxBooksForReservation) {
         this.maxBooksForReservation = maxBooksForReservation;
     }
+*/
+
 /*
     public List<Book> getReservedBooks() {
         return reservedBooks;
@@ -60,6 +62,8 @@ class Member {
         }
     }
 */
+
+/*
 }
 
 class UndergraduateStudent extends Member {
@@ -79,3 +83,4 @@ class Professor extends Member {
         super(name, cpf, age, 10); // Maximum of 10 books can be reserved by a professor
     }
 }
+ */
