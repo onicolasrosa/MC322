@@ -8,8 +8,8 @@ public class DVD extends Item {
     private String legendasAudioDisponiveis;
 
     public DVD(String title, String author, String category, String elenco, String duracao,
-               int copiasTotal, int copiasDisponiveis, String legendasAudioDisponiveis, String estadoConservacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao);
+               int copiasTotal, int copiasDisponiveis, String legendasAudioDisponiveis, String estadoConservacao, String localizacao) {
+        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
         this.elenco = elenco;
         this.duracao = duracao;
         this.legendasAudioDisponiveis = legendasAudioDisponiveis;

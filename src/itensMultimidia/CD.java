@@ -7,8 +7,8 @@ public class CD extends Item {
     private int copiasDisponiveis;
 
     public CD(String title, String author, String category, String[] listaFaixas, String duracaoTotal,
-              int copiasTotal, int copiasDisponiveis, String estadoConservacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao);
+              int copiasTotal, int copiasDisponiveis, String estadoConservacao, String localizacao) {
+        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
         this.listaFaixas = listaFaixas;
         this.duracaoTotal = duracaoTotal;
     }

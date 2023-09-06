@@ -1,4 +1,4 @@
-package src.sistemaLegado;
+package auxi.sistemaLegado;
 class Item {
     private String title;
     private String author;

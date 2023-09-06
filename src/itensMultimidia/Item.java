@@ -1,41 +1,44 @@
 package src.itensMultimidia;
 
 abstract class Item {
-    private String title;
-    private String author;
-    private String category;
+    private String titulo;
+    private String autor;
+    private String categoria;
     private int copiasTotal;
     private int copiasDisponiveis;
     private String estadoConservacao;
+    private String localizacao;
 
-    public Item(String title, String author, String category, int copiasTotal, int copiasDisponiveis, String estadoConservacao) {
-        this.title = title;
-        this.author = author;
-        this.category = category;
+    protected Item(String titulo, String autor, String categoria, int copiasTotal, int copiasDisponiveis, 
+                String estadoConservacao, String localizacao) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.categoria = categoria;
         this.copiasTotal = copiasTotal;
         this.copiasDisponiveis = copiasDisponiveis;
         this.estadoConservacao = estadoConservacao;
+        this.localizacao = localizacao;
     }
 
-    public String getTitle() {
-        return title;
+    public String gettitulo() {
+        return titulo;
     }
-    public void setTitle(String title) {
-        this.title = title;
+    public void settitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getautor() {
+        return autor;
     }
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setautor(String autor) {
+        this.autor = autor;
     }
     
-    public String getCategory() {
-        return category;
+    public String getcategoria() {
+        return categoria;
     }
-    public void setCategory(String category) {
-        this.category = category;
+    public void setcategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public int getCopiasTotal() {
@@ -59,4 +62,10 @@ abstract class Item {
         this.estadoConservacao = estadoConservacao;
     }
 
+    public String getLocalizacao() {
+        return localizacao;
+    }
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
 }
