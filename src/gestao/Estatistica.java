@@ -1,5 +1,5 @@
 package src.gestao;
 
-public class Estatistica {
+class Estatistica {
     
 }

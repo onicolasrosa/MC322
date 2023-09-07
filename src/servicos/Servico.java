@@ -1,5 +1,5 @@
 package src.servicos;
 
-class Renovacao {
+class Servico {
     
 }

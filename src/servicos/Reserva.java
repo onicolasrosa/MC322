@@ -1,5 +1,5 @@
 package src.servicos;
 
-public class Reserva {
+class Reserva {
     
 }
