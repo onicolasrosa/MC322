@@ -1,5 +1,5 @@
 package src.gestao;
 
-class Relatorio {
+class RepositorioGestao {
     
 }
