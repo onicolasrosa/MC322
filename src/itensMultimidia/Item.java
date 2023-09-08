@@ -9,35 +9,35 @@ abstract class Item {
     private String estadoConservacao;
     private String localizacao;
 
-    protected Item(String titulo, String autor, String categoria, int copiasTotal, int copiasDisponiveis, 
+    protected Item(String titulo, String autor, String categoria, int copiasTotal, 
                 String estadoConservacao, String localizacao) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
         this.copiasTotal = copiasTotal;
-        this.copiasDisponiveis = copiasDisponiveis;
+        this.copiasDisponiveis = copiasTotal;
         this.estadoConservacao = estadoConservacao;
         this.localizacao = localizacao;
     }
 
-    public String gettitulo() {
+    public String getTitulo() {
         return titulo;
     }
-    public void settitulo(String titulo) {
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public String getautor() {
+    public String getAutor() {
         return autor;
     }
-    public void setautor(String autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
     
-    public String getcategoria() {
+    public String getCategoria() {
         return categoria;
     }
-    public void setcategoria(String categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 

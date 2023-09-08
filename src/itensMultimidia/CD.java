@@ -3,12 +3,10 @@ package src.itensMultimidia;
 public class CD extends Item {
     private String[] listaFaixas;
     private String duracaoTotal;
-    private int copiasTotal;
-    private int copiasDisponiveis;
 
-    public CD(String title, String author, String category, String[] listaFaixas, String duracaoTotal,
-              int copiasTotal, int copiasDisponiveis, String estadoConservacao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public CD(String titulo, String autor, String categoria, int copiasTotal,
+              String estadoConservacao, String localizacao, String[] listaFaixas, String duracaoTotal) {
+        super(titulo, autor, categoria, copiasTotal, estadoConservacao, localizacao);
         this.listaFaixas = listaFaixas;
         this.duracaoTotal = duracaoTotal;
     }
@@ -27,21 +25,5 @@ public class CD extends Item {
 
     public void setDuracaoTotal(String duracaoTotal) {
         this.duracaoTotal = duracaoTotal;
-    }
-
-    public int getCopiasTotal() {
-        return copiasTotal;
-    }
-
-    public void setCopiasTotal(int copiasTotal) {
-        this.copiasTotal = copiasTotal;
-    }
-
-    public int getCopiasDisponiveis() {
-        return copiasDisponiveis;
-    }
-
-    public void setCopiasDisponiveis(int copiasDisponiveis) {
-        this.copiasDisponiveis = copiasDisponiveis;
     }
 }

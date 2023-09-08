@@ -7,10 +7,10 @@ public class LivroEletronico extends Item {
     private String requisitosLeitura;
     private String dataDisponibilidade;
 
-    public LivroEletronico(String title, String author, String category, int copiasTotal, int copiasDisponiveis,
-                           String estadoConservacao, String formato, int numeroTotalLicencas, String formatoArquivo,
-                            String requisitosLeitura, String dataDisponibilidade, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public LivroEletronico(String titulo, String autor, String categoria, int copiasTotal, String estadoConservacao, 
+                            String localizacao, String formato, int numeroTotalLicencas, String formatoArquivo, 
+                            String requisitosLeitura, String dataDisponibilidade) {
+        super(titulo, autor, categoria, copiasTotal, estadoConservacao, localizacao);
         this.formato = formato;
         this.numeroTotalLicencas = numeroTotalLicencas;
         this.formatoArquivo = formatoArquivo;

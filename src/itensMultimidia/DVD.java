@@ -3,13 +3,11 @@ package src.itensMultimidia;
 public class DVD extends Item {
     private String elenco;
     private String duracao;
-    private int copiasTotal;
-    private int copiasDisponiveis;
     private String legendasAudioDisponiveis;
 
-    public DVD(String title, String author, String category, String elenco, String duracao,
-               int copiasTotal, int copiasDisponiveis, String legendasAudioDisponiveis, String estadoConservacao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public DVD(String titulo, String autor, String categoria, int copiasTotal, String estadoConservacao, 
+                String localizacao, String elenco, String duracao, String legendasAudioDisponiveis) {
+        super(titulo, autor, categoria, copiasTotal, estadoConservacao, localizacao);
         this.elenco = elenco;
         this.duracao = duracao;
         this.legendasAudioDisponiveis = legendasAudioDisponiveis;
@@ -29,22 +27,6 @@ public class DVD extends Item {
 
     public void setDuracao(String duracao) {
         this.duracao = duracao;
-    }
-
-    public int getCopiasTotal() {
-        return copiasTotal;
-    }
-
-    public void setCopiasTotal(int copiasTotal) {
-        this.copiasTotal = copiasTotal;
-    }
-
-    public int getCopiasDisponiveis() {
-        return copiasDisponiveis;
-    }
-
-    public void setCopiasDisponiveis(int copiasDisponiveis) {
-        this.copiasDisponiveis = copiasDisponiveis;
     }
 
     public String getLegendasAudioDisponiveis() {

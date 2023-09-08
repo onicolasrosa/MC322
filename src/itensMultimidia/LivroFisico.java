@@ -6,14 +6,13 @@ public class LivroFisico extends Item {
     private int copiasTotalPorEdicao;
     private int copiasDisponiveisPorEdicao;
 
-    public LivroFisico(String title, String author, String category, int copiasTotal, int copiasDisponiveis,
-                       String estadoConservacao, String isbn, String edicao, int copiasTotalPorEdicao,
-                       int copiasDisponiveisPorEdicao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public LivroFisico(String titulo, String autor, String categoria, int copiasTotal, String estadoConservacao, 
+                        String localizacao, String isbn, String edicao) {
+        super(titulo, autor, categoria, copiasTotal, estadoConservacao, localizacao);
         this.isbn = isbn;
         this.edicao = edicao;
-        this.copiasTotalPorEdicao = copiasTotalPorEdicao;
-        this.copiasDisponiveisPorEdicao = copiasDisponiveisPorEdicao;
+        this.copiasTotalPorEdicao = copiasTotal;
+        this.copiasDisponiveisPorEdicao = copiasTotalPorEdicao;
     }
 
     public String getIsbn() {
