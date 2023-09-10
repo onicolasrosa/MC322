@@ -1,5 +1,6 @@
 package src.itensMultimidia;
 
-class RepositorioItens {
-    
+
+public class RepositorioItens {
+
 }

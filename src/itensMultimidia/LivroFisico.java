@@ -3,17 +3,12 @@ package src.itensMultimidia;
 public class LivroFisico extends Item {
     private String isbn;
     private String edicao;
-    private int copiasTotalPorEdicao;
-    private int copiasDisponiveisPorEdicao;
 
-    public LivroFisico(String title, String author, String category, int copiasTotal, int copiasDisponiveis,
-                       String estadoConservacao, String isbn, String edicao, int copiasTotalPorEdicao,
-                       int copiasDisponiveisPorEdicao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public LivroFisico(String titulo, String autor, String categoria, String estadoConservacao, 
+                        String localizacao, String codigoSerial, String isbn, String edicao) {
+        super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.isbn = isbn;
         this.edicao = edicao;
-        this.copiasTotalPorEdicao = copiasTotalPorEdicao;
-        this.copiasDisponiveisPorEdicao = copiasDisponiveisPorEdicao;
     }
 
     public String getIsbn() {
@@ -30,21 +25,5 @@ public class LivroFisico extends Item {
 
     public void setEdicao(String edicao) {
         this.edicao = edicao;
-    }
-
-    public int getCopiasTotalPorEdicao() {
-        return copiasTotalPorEdicao;
-    }
-
-    public void setCopiasTotalPorEdicao(int copiasTotalPorEdicao) {
-        this.copiasTotalPorEdicao = copiasTotalPorEdicao;
-    }
-
-    public int getCopiasDisponiveisPorEdicao() {
-        return copiasDisponiveisPorEdicao;
-    }
-
-    public void setCopiasDisponiveisPorEdicao(int copiasDisponiveisPorEdicao) {
-        this.copiasDisponiveisPorEdicao = copiasDisponiveisPorEdicao;
     }
 }

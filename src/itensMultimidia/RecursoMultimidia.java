@@ -2,15 +2,13 @@ package src.itensMultimidia;
 
 public class RecursoMultimidia extends Item {
     private String tipoRecurso;
-    private String formato;
-    private int copiasTotal;
-    private int copiasDisponiveis;
+    private String formatoArquivo;
 
-    public RecursoMultimidia(String title, String author, String category, String tipoRecurso, String formato,
-                             int copiasTotal, int copiasDisponiveis, String estadoConservacao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public RecursoMultimidia(String titulo, String autor, String categoria, String estadoConservacao, 
+                                String localizacao, String codigoSerial, String tipoRecurso, String formatoArquivo) {
+        super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.tipoRecurso = tipoRecurso;
-        this.formato = formato;
+        this.formatoArquivo = formatoArquivo;
     }
 
     public String getTipoRecurso() {
@@ -21,27 +19,11 @@ public class RecursoMultimidia extends Item {
         this.tipoRecurso = tipoRecurso;
     }
 
-    public String getFormato() {
-        return formato;
+    public String getFormatoArquivo() {
+        return formatoArquivo;
     }
 
-    public void setFormato(String formato) {
-        this.formato = formato;
-    }
-
-    public int getCopiasTotal() {
-        return copiasTotal;
-    }
-
-    public void setCopiasTotal(int copiasTotal) {
-        this.copiasTotal = copiasTotal;
-    }
-
-    public int getCopiasDisponiveis() {
-        return copiasDisponiveis;
-    }
-
-    public void setCopiasDisponiveis(int copiasDisponiveis) {
-        this.copiasDisponiveis = copiasDisponiveis;
+    public void setFormatoArquivo(String formatoArquivo) {
+        this.formatoArquivo = formatoArquivo;
     }
 }

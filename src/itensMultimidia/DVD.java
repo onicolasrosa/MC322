@@ -2,16 +2,14 @@ package src.itensMultimidia;
 
 public class DVD extends Item {
     private String elenco;
-    private String duracao;
-    private int copiasTotal;
-    private int copiasDisponiveis;
+    private String duracaoTotal;
     private String legendasAudioDisponiveis;
 
-    public DVD(String title, String author, String category, String elenco, String duracao,
-               int copiasTotal, int copiasDisponiveis, String legendasAudioDisponiveis, String estadoConservacao, String localizacao) {
-        super(title, author, category, copiasTotal, copiasDisponiveis, estadoConservacao, localizacao);
+    public DVD(String titulo, String autor, String categoria, String estadoConservacao, 
+                String localizacao, String codigoSerial, String elenco, String duracaoTotal, String legendasAudioDisponiveis) {
+        super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.elenco = elenco;
-        this.duracao = duracao;
+        this.duracaoTotal = duracaoTotal;
         this.legendasAudioDisponiveis = legendasAudioDisponiveis;
     }
 
@@ -23,28 +21,12 @@ public class DVD extends Item {
         this.elenco = elenco;
     }
 
-    public String getDuracao() {
-        return duracao;
+    public String getDuracaoTotal() {
+        return duracaoTotal;
     }
 
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
-    }
-
-    public int getCopiasTotal() {
-        return copiasTotal;
-    }
-
-    public void setCopiasTotal(int copiasTotal) {
-        this.copiasTotal = copiasTotal;
-    }
-
-    public int getCopiasDisponiveis() {
-        return copiasDisponiveis;
-    }
-
-    public void setCopiasDisponiveis(int copiasDisponiveis) {
-        this.copiasDisponiveis = copiasDisponiveis;
+    public void setDuracaoTotal(String duracaoTotal) {
+        this.duracaoTotal = duracaoTotal;
     }
 
     public String getLegendasAudioDisponiveis() {
