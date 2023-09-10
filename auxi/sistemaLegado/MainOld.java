@@ -1,6 +1,6 @@
 package auxi.sistemaLegado;
 
-public class Main {
+public class MainOld {
     public static void main(String[] args) {
         Item primeiroItem = new Item("O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", 
         "Indisponivel", "Indisponivel");
