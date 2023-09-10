@@ -2,13 +2,13 @@ package src.itensMultimidia;
 
 public class RecursoMultimidia extends Item {
     private String tipoRecurso;
-    private String formato;
+    private String formatoArquivo;
 
-    public RecursoMultimidia(String titulo, String autor, String categoria, int copiasTotal, String estadoConservacao, 
-                                String localizacao, String tipoRecurso, String formato) {
-        super(titulo, autor, categoria, copiasTotal, estadoConservacao, localizacao);
+    public RecursoMultimidia(String titulo, String autor, String categoria, String estadoConservacao, 
+                                String localizacao, String codigoSerial, String tipoRecurso, String formatoArquivo) {
+        super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.tipoRecurso = tipoRecurso;
-        this.formato = formato;
+        this.formatoArquivo = formatoArquivo;
     }
 
     public String getTipoRecurso() {
@@ -19,11 +19,11 @@ public class RecursoMultimidia extends Item {
         this.tipoRecurso = tipoRecurso;
     }
 
-    public String getFormato() {
-        return formato;
+    public String getFormatoArquivo() {
+        return formatoArquivo;
     }
 
-    public void setFormato(String formato) {
-        this.formato = formato;
+    public void setFormatoArquivo(String formatoArquivo) {
+        this.formatoArquivo = formatoArquivo;
     }
 }

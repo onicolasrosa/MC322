@@ -4,9 +4,9 @@ public class CD extends Item {
     private String[] listaFaixas;
     private String duracaoTotal;
 
-    public CD(String titulo, String autor, String categoria, int copiasTotal,
-              String estadoConservacao, String localizacao, String[] listaFaixas, String duracaoTotal) {
-        super(titulo, autor, categoria, copiasTotal, estadoConservacao, localizacao);
+    public CD(String titulo, String autor, String categoria, String estadoConservacao,
+              String localizacao, String codigoSerial, String[] listaFaixas, String duracaoTotal) {
+        super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.listaFaixas = listaFaixas;
         this.duracaoTotal = duracaoTotal;
     }
