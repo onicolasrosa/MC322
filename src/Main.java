@@ -1,6 +1,6 @@
 package src;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import src.itensMultimidia.CD;
@@ -8,11 +8,19 @@ import src.itensMultimidia.DVD;
 import src.itensMultimidia.LivroEletronico;
 import src.itensMultimidia.LivroFisico;
 import src.itensMultimidia.RecursoMultimidia;
+import src.itensMultimidia.RepositorioItens;
+import src.repositorio.RepositorioReader;
 import src.repositorio.RepositorioWriter;
 
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws IOException{
+        //Instancializando classes
+        RepositorioWriter repWriter = new RepositorioWriter();
+        RepositorioReader repReader = new RepositorioReader();
+        RepositorioItens repItens = new RepositorioItens(repWriter, repReader);
+
+
         LivroFisico livroFisico1 = new LivroFisico("Dom Quixote", "Miguel de Cervantes", "Livro Clássico", "Bom", "Estante4", 
                                                    "AAAA0000", "ISBN123456", "1ª Edição");
         System.out.println("Título do Livro Físico: " + livroFisico1.getTitulo());
@@ -47,24 +55,24 @@ public class Main {
 
 
         CD cd1 = new CD("Álbum de Rock Clássico", "Banda Clássica", "Música", "Excelente", "Estante1", 
-                       "AAAA0000", new String[]{"Bohemian Rhapsody", "Hotel California", "Stairway to Heaven"}, "50 minutos");
+                       "AAAA0000", "Bohemian Rhapsody; Hotel California; Stairway to Heaven", "50 minutos");
         System.out.println("Título do CD: " + cd1.getTitulo());
         System.out.println("Autor do CD: " + cd1.getAutor());
-        System.out.println("Número de faixas: " + cd1.getListaFaixas().length);
+        System.out.println("Número de faixas: " + cd1.getListaFaixas().size());
         System.out.println("Duração total: " + cd1.getDuracaoTotal());
         System.out.println("-------------------------------------------------------------------------------------");
 
         CD cd2 = new CD("Álbum de Jazz", "Miles Davis", "Música", "Ótimo", "Estante1", 
-                       "AAAA0000", new String[]{"So What", "All Blues", "Blue in Green"}, "42 minutos");
+                       "AAAA0000", "So What; All Blues; Blue in Green", "42 minutos");
         System.out.println("Título do CD: " + cd2.getTitulo());
         System.out.println("Autor do CD: " + cd2.getAutor());
-        System.out.println("Número de faixas: " + cd2.getListaFaixas().length);
+        System.out.println("Número de faixas: " + cd2.getListaFaixas().size());
         System.out.println("Duração total: " + cd2.getDuracaoTotal());
         System.out.println("-------------------------------------------------------------------------------------");
 
 
         DVD dvd1 = new DVD("Filme de Ação", "Diretor Famoso", "Filme", "Ótimo", "Estante2", 
-                           "AAAA0000", "Brad Pitt, Angelina Jolie", "140 minutos", "Português, Inglês");
+                           "AAAA0000", "Brad Pitt; Angelina Jolie", "140 minutos", "Português, Inglês");
         System.out.println("Título do DVD: " + dvd1.getTitulo());
         System.out.println("Elenco do DVD: " + dvd1.getElenco());
         System.out.println("Duração do DVD: " + dvd1.getDuracaoTotal());
@@ -72,7 +80,7 @@ public class Main {
         System.out.println("-------------------------------------------------------------------------------------");
 
         DVD dvd2 = new DVD("Filme de Comédia", "Diretor Cômico", "Filme", "Bom", "Estante2", 
-                           "AAAA0000", "Jim Carrey, Jennifer Aniston", "96 minutos", "Português, Inglês");
+                           "AAAA0000", "Jim Carrey; Jennifer Aniston", "96 minutos", "Português, Inglês");
         System.out.println("Título do DVD: " + dvd2.getTitulo());
         System.out.println("Elenco do DVD: " + dvd2.getElenco());
         System.out.println("Duração do DVD: " + dvd2.getDuracaoTotal());
@@ -113,9 +121,18 @@ public class Main {
         itens.add(dvd2);
         itens.add(recurso1);
         itens.add(recurso2);
-
-        RepositorioWriter repItens = new RepositorioWriter();        
-        repItens.writeObjects(itens);
-
+        
+        
+                
+        //ArrayList<ArrayList<String>> todosItens = repItens.readItems();
+        
+        //System.out.println(todosItens);
+        repItens.overWriteItens(itens);
+        /*
+        for(Object item : itens) {
+            repItens.addItem(item);
+        }
+        */
+        repItens.addItem(cd1);
     }
 }

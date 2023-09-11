@@ -1,23 +1,34 @@
 package src.itensMultimidia;
 
+import java.util.ArrayList;
+
 public class DVD extends Item {
-    private String elenco;
+    private ArrayList<String> elenco;
     private String duracaoTotal;
     private String legendasAudioDisponiveis;
+
+    private ArrayList<String> getStringList(String listaString) {
+        ArrayList<String> output = new ArrayList<>();
+        String[] temp = listaString.split(";");
+        for(String elemento : temp) {
+            output.add(elemento);
+        }
+        return output;
+    }
 
     public DVD(String titulo, String autor, String categoria, String estadoConservacao, 
                 String localizacao, String codigoSerial, String elenco, String duracaoTotal, String legendasAudioDisponiveis) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
-        this.elenco = elenco;
+        this.elenco = getStringList(elenco);
         this.duracaoTotal = duracaoTotal;
         this.legendasAudioDisponiveis = legendasAudioDisponiveis;
     }
 
-    public String getElenco() {
+    public ArrayList<String> getElenco() {
         return elenco;
     }
 
-    public void setElenco(String elenco) {
+    public void setElenco(ArrayList<String> elenco) {
         this.elenco = elenco;
     }
 

@@ -1,44 +1,39 @@
 package src.repositorio;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 
-enum ItemHeader {
-    classe, titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial, disponivel, 
-    listaFaixas, duracaoTotal, elenco, legendasAudioDisponiveis, isbn, edicao, 
-    formatoArquivo, requisitosLeitura, dataDisponibilidade, tipoRecurso;
-}
 
 public class RepositorioWriter {
-    private String[] atributeNames() {
-        ItemHeader headers[] = ItemHeader.values();
-        int lenght = headers.length;
-        String[] output = new String[lenght];
-        for (int i = 0; i < lenght; i++) {
-           output[i] = headers[i].name();
-        }
-        return output;
+
+    public RepositorioWriter() {
     }
 
-    private int indiceHeader(String headerName) {
-        String[] atributeNames = atributeNames();
-        for (int i = 0; i < atributeNames.length; i++) {
-            if (atributeNames[i] == headerName) {
+
+
+    private int indiceHeader(String headerName, String headerNames[]) {
+        for (int i = 0; i < headerNames.length; i++) {
+            if (headerNames[i] == headerName) {
                 return i;
             }
         }
-
         System.out.println("Header " + headerName + " not found");
         return 0;
     }
 
-    private Object[] emptyCsvOutput() {
-        int lenght = ItemHeader.values().length;
-        Object[] csvOutput = new Object[lenght];
-        for(int i = 0; i < lenght; i++) {
+    private Object[] emptyCsvOutput(String headerNames[], int headerLenght) {
+        Object[] csvOutput = new Object[headerLenght];
+        for(int i = 0; i < headerLenght; i++) {
             csvOutput[i] = "empty";
         }
         return csvOutput;
@@ -49,8 +44,31 @@ public class RepositorioWriter {
         return fullName.substring(lastDotIndex + 1);
     }
 
-    private Object[] getObjectAttributeValues(Object objeto) {
-        Object[] atributeValues = emptyCsvOutput();
+    private static List<?> convertObjectToList(Object obj) {
+        List<?> list = new ArrayList<>();
+        if (obj.getClass().isArray()) {
+            list = Arrays.asList((Object[])obj);
+        } else if (obj instanceof Collection) {
+            list = new ArrayList<>((Collection<?>)obj);
+        }
+        return list;
+    }
+
+    private String listToSingleString(Object inputObject) {
+        List<?> inputList = convertObjectToList(inputObject);
+        
+        String output = "";
+        int listSize = inputList.size();
+        for(int i = 0; i < listSize - 1; i++) {
+            output += Objects.toString(inputList.get(i), null) + "|";
+        }
+        output += inputList.get(listSize-1) + ",";
+        return output;
+        
+    }
+
+    private Object[] getObjectAttributeValues(Object objeto, String headerNames[]) {
+        Object[] atributeValues = emptyCsvOutput(headerNames, headerNames.length);
 
         Class<?> classeAtual = objeto.getClass();
         atributeValues[0] = getObjectClassName(classeAtual.getName());
@@ -58,13 +76,20 @@ public class RepositorioWriter {
         while (classeAtual != null) {
             Field[] atributos = classeAtual.getDeclaredFields();
             for (Field atributo : atributos) {
-                String attributeName = atributo.getName();
                 try {
                     atributo.setAccessible(true); //deixa campos privados acessiveis se necessario
+                    Object value = atributo.get(objeto);
                     //System.out.println("Attribute Name: " + attributeName);
                     //System.out.println("Attribute Value: " + atributo.get(objeto));
                     //System.out.println("CSV index Value: " + indiceHeader(attributeName));
-                    atributeValues[indiceHeader(attributeName)] = atributo.get(objeto);
+
+                    String attributeName = atributo.getName();
+                    String attributeType = atributo.getType().getName();
+                    if ( attributeType == "java.util.ArrayList" && value != null) {
+                        atributeValues[indiceHeader(attributeName, headerNames)] = listToSingleString(value);
+                    } else {
+                        atributeValues[indiceHeader(attributeName, headerNames)] = value;
+                    }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -82,22 +107,35 @@ public class RepositorioWriter {
         out.write(csvOutput[headerLenght-1] + "\n");
     }
 
-    public void writeObjects(Object objeto) throws FileNotFoundException {
-        File csvFile = new File("./files/registro_itens.csv");
-        PrintWriter out = new PrintWriter(csvFile);
-        Object[] csvOutput = getObjectAttributeValues(objeto);
+    public void overWriteObjects(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException {
+        PrintWriter out = new PrintWriter(new File(pathname));
+        Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
+        writeLine(headerNames, out); //escreve o header no arquivo csv
         writeLine(csvOutput, out);
         out.close();
     }
 
-    public void writeObjects(ArrayList<Object> objetos) throws FileNotFoundException{
-        File csvFile = new File("./files/registro_itens.csv");
-        PrintWriter out = new PrintWriter(csvFile);
+    public void overWriteObjects(ArrayList<Object> objetos, String pathname, String[] headerNames) throws FileNotFoundException{
+        PrintWriter out = new PrintWriter(new File(pathname));
+        writeLine(headerNames, out); //escreve o header no arquivo csv
         for(Object objeto : objetos) {
-            Object[] csvOutput = getObjectAttributeValues(objeto);
+            Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
             writeLine(csvOutput, out);
         }
         out.close();
+    }
+
+    public void addObject(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException{
+        try(FileWriter fw = new FileWriter(pathname, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw))
+        {
+            Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
+            writeLine(csvOutput, out);
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
     }
     
 }
