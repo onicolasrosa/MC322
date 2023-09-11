@@ -14,13 +14,10 @@ enum ItemHeader {
 }
 
 public class RepositorioReader {
-    private String pathname;
-
-    public RepositorioReader(String pathname) {
-        this.pathname = pathname;
+    public RepositorioReader() {
     }
 
-    public ArrayList<ArrayList<String>> readItens() throws FileNotFoundException, IOException{
+    public ArrayList<ArrayList<String>> readItens(String pathname) throws FileNotFoundException, IOException{
         ArrayList<ArrayList<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(pathname))) {
             String line;

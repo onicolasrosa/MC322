@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "MC322_3ff3dfb5"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -37,6 +44,6 @@
             "request": "launch",
             "mainClass": "auxi.exem.Main",
             "vmArgs": "--add-opens java.base/java.util=ALL-UNNAMED"
-        },
+        }
     ]
 }

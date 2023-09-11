@@ -9,10 +9,18 @@ import src.itensMultimidia.LivroEletronico;
 import src.itensMultimidia.LivroFisico;
 import src.itensMultimidia.RecursoMultimidia;
 import src.itensMultimidia.RepositorioItens;
+import src.repositorio.RepositorioReader;
+import src.repositorio.RepositorioWriter;
 
 
 public class Main {
     public static void main(String[] args) throws IOException{
+        //Instancializando classes
+        RepositorioWriter repWriter = new RepositorioWriter();
+        RepositorioReader repReader = new RepositorioReader();
+        RepositorioItens repItens = new RepositorioItens(repWriter, repReader);
+
+
         LivroFisico livroFisico1 = new LivroFisico("Dom Quixote", "Miguel de Cervantes", "Livro Clássico", "Bom", "Estante4", 
                                                    "AAAA0000", "ISBN123456", "1ª Edição");
         System.out.println("Título do Livro Físico: " + livroFisico1.getTitulo());
@@ -115,14 +123,16 @@ public class Main {
         itens.add(recurso2);
         
         
-        RepositorioItens repItens = new RepositorioItens();        
-        repItens.writeItem(itens);
-        ArrayList<ArrayList<String>> todosItens = repItens.readItems();
+                
+        //ArrayList<ArrayList<String>> todosItens = repItens.readItems();
         
         //System.out.println(todosItens);
-        for(ArrayList<String> item : todosItens) {
-            System.out.println(item);
+        repItens.overWriteItens(itens);
+        /*
+        for(Object item : itens) {
+            repItens.addItem(item);
         }
-        
+        */
+        repItens.addItem(cd1);
     }
 }
