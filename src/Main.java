@@ -3,6 +3,7 @@ package src;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import src.infraestrutura.ReservaSala;
 import src.itensMultimidia.CD;
 import src.itensMultimidia.DVD;
 import src.itensMultimidia.LivroEletronico;
@@ -121,18 +122,35 @@ public class Main {
         itens.add(dvd2);
         itens.add(recurso1);
         itens.add(recurso2);
+
+        repItens.overWriteItems(itens);
         
-        
-                
-        //ArrayList<ArrayList<String>> todosItens = repItens.readItems();
-        
-        //System.out.println(todosItens);
-        repItens.overWriteItens(itens);
-        /*
-        for(Object item : itens) {
-            repItens.addItem(item);
-        }
-        */
-        repItens.addItem(cd1);
+        ReservaSala reserva = new ReservaSala("2023-09-12", "14:00", "16:00");
+
+        reserva.setStatus(ReservaSala.StatusReserva.CONFIRMADA);
+
+        ReservaSala.SalaIndividual salaIndividual = reserva.new SalaIndividual(101, true);
+        System.out.println("Número da Sala Individual: " + salaIndividual.getNumeroSala());
+        System.out.println("Computador Disponível: " + salaIndividual.isComputadorDisponivel());
+
+        ReservaSala.SalaGrupo salaGrupo = reserva.new SalaGrupo(10, true);
+        System.out.println("Capacidade Máxima da Sala de Grupo: " + salaGrupo.getCapacidadeMaxima());
+        System.out.println("Equipamento de Multimídia Disponível: " + salaGrupo.isEquipMultimidia());
+
+        ReservaSala.SalaSilenciosa salaSilenciosa = reserva.new SalaSilenciosa(20, true);
+        System.out.println("Número de Assentos da Sala Silenciosa: " + salaSilenciosa.getNumeroAssentos());
+        System.out.println("Cabines Individuais Disponíveis: " + salaSilenciosa.isCabinesIndividuais());
+
+        ArrayList<String> equipamentos = new ArrayList<>();
+        equipamentos.add("Projetor");
+        equipamentos.add("Microfone");
+        ReservaSala.SalaMultimidia salaMultimidia = reserva.new SalaMultimidia(equipamentos);
+        System.out.println("Equipamentos Disponíveis na Sala Multimídia: " + salaMultimidia.getEquipamentosDisponiveis());
+
+        salaMultimidia.addEquipamento("Câmera");
+
+        salaMultimidia.removeEquipamentoByIndex(1);
+        System.out.println("Equipamentos Disponíveis na Sala Multimídia após adição/remoção: " + salaMultimidia.getEquipamentosDisponiveis());
+
     }
 }

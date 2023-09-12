@@ -15,11 +15,8 @@ import java.util.Objects;
 
 
 public class RepositorioWriter {
-
     public RepositorioWriter() {
     }
-
-
 
     private int indiceHeader(String headerName, String headerNames[]) {
         for (int i = 0; i < headerNames.length; i++) {
@@ -106,6 +103,27 @@ public class RepositorioWriter {
         }
         out.write(csvOutput[headerLenght-1] + "\n");
     }
+    private void writeLine(ArrayList<String> csvOutput, PrintWriter out) {
+        int headerLenght = csvOutput.size();
+        for(int i = 0; i < headerLenght - 1; i++) {
+            out.write(csvOutput.get(i) + ",");
+        }
+        out.write(csvOutput.get(headerLenght-1) + "\n");
+    }
+    
+    public void writeObjectString(ArrayList<String> csvOutput, PrintWriter out) {
+        int headerLenght = csvOutput.size();
+        for(int i = 0; i < headerLenght - 1; i++) {
+            out.write(csvOutput.get(i) + ",");
+        }
+        out.write(csvOutput.get(headerLenght-1) + "\n");
+    }
+
+    public void writeHeaderOnly(String pathname, String[] headerNames) throws FileNotFoundException {
+        PrintWriter out = new PrintWriter(new File(pathname));
+        writeLine(headerNames, out); //escreve o header no arquivo csv
+        out.close();
+    }
 
     public void overWriteObjects(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException {
         PrintWriter out = new PrintWriter(new File(pathname));
@@ -137,6 +155,31 @@ public class RepositorioWriter {
             //exception handling left as an exercise for the reader
         }
     }
+
+    public void addString(ArrayList<String> csvRow, String pathname, String[] headerNames) throws FileNotFoundException{
+        try(FileWriter fw = new FileWriter(pathname, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw))
+        {
+            writeLine(csvRow, out);
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
+
+    public void addMultipleString(ArrayList<ArrayList<String>> csvMultipleRow, String pathname, String[] headerNames) throws FileNotFoundException{
+        try(FileWriter fw = new FileWriter(pathname, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw))
+        {
+            for (ArrayList<String> csvRow : csvMultipleRow) {
+                writeLine(csvRow, out);
+            }
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
     
 }
-
