@@ -3,6 +3,9 @@ package src;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import src.infraestrutura.Equipamentos;
+import src.infraestrutura.EventosBiblioteca;
+import src.infraestrutura.ReservaSala;
 import src.itensMultimidia.CD;
 import src.itensMultimidia.DVD;
 import src.itensMultimidia.LivroEletronico;
@@ -121,18 +124,94 @@ public class Main {
         itens.add(dvd2);
         itens.add(recurso1);
         itens.add(recurso2);
+
+        repItens.overWriteItems(itens);
         
+        ReservaSala reserva = new ReservaSala("2023-09-12", "14:00", "16:00");
+
+        reserva.setStatus(ReservaSala.StatusReserva.CONFIRMADA);
+
+        ReservaSala.SalaIndividual salaIndividual = reserva.new SalaIndividual(101, true);
+        System.out.println("Número da Sala Individual: " + salaIndividual.getNumeroSala());
+        System.out.println("Computador Disponível: " + salaIndividual.isComputadorDisponivel());
+
+        ReservaSala.SalaGrupo salaGrupo = reserva.new SalaGrupo(10, true);
+        System.out.println("Capacidade Máxima da Sala de Grupo: " + salaGrupo.getCapacidadeMaxima());
+        System.out.println("Equipamento de Multimídia Disponível: " + salaGrupo.isEquipMultimidia());
+
+        ReservaSala.SalaSilenciosa salaSilenciosa = reserva.new SalaSilenciosa(20, true);
+        System.out.println("Número de Assentos da Sala Silenciosa: " + salaSilenciosa.getNumeroAssentos());
+        System.out.println("Cabines Individuais Disponíveis: " + salaSilenciosa.isCabinesIndividuais());
+
+        ArrayList<String> equipamentosSala = new ArrayList<>();
+        equipamentosSala.add("Projetor");
+        equipamentosSala.add("Microfone");
+        ReservaSala.SalaMultimidia salaMultimidia = reserva.new SalaMultimidia(equipamentosSala);
+        System.out.println("Equipamentos Disponíveis na Sala Multimídia: " + salaMultimidia.getEquipamentosDisponiveis());
+
+        salaMultimidia.addEquipamento("Câmera");
+
+        salaMultimidia.removeEquipamentoByIndex(1);
+        System.out.println("Equipamentos Disponíveis na Sala Multimídia após adição/remoção: " + salaMultimidia.getEquipamentosDisponiveis());
+
+        ReservaSala reserva1 = new ReservaSala("2023-09-15", "09:00", "11:00");
+        reserva1.setStatus(ReservaSala.StatusReserva.CONFIRMADA);
+
+        ReservaSala.SalaIndividual salaIndividual1 = reserva1.new SalaIndividual(101, true);
+
+        ReservaSala.SalaGrupo salaGrupo1 = reserva1.new SalaGrupo(10, true);
         
-                
-        //ArrayList<ArrayList<String>> todosItens = repItens.readItems();
-        
-        //System.out.println(todosItens);
-        repItens.overWriteItens(itens);
-        /*
-        for(Object item : itens) {
-            repItens.addItem(item);
-        }
-        */
-        repItens.addItem(cd1);
+        ReservaSala.SalaSilenciosa salaSilenciosa1 = reserva1.new SalaSilenciosa(30, true);
+
+
+        ArrayList<String> equipamentos = new ArrayList<>();
+        equipamentos.add("Projetor");
+        equipamentos.add("Microfone");
+        ReservaSala.SalaMultimidia salaMultimidia1 = reserva1.new SalaMultimidia(equipamentos);
+
+        System.out.println("Reserva 1 - Data: " + reserva1.getDataReserva() + ", Hora Início: " + reserva1.getHoraInicio() + ", Hora Fim: " + reserva1.getHoraFim());
+        System.out.println("Reserva 1 - Status: " + reserva1.getStatus());
+
+        System.out.println("Sala Individual 1 - Número: " + salaIndividual1.getNumeroSala() + ", Computador Disponível: " + salaIndividual1.isComputadorDisponivel());
+        System.out.println("Sala Grupo 1 - Capacidade Máxima: " + salaGrupo1.getCapacidadeMaxima() + ", Equipamento de Apresentação: " + salaGrupo1.isEquipMultimidia());
+        System.out.println("Sala Silenciosa 1 - Número de Assentos: " + salaSilenciosa1.getNumeroAssentos() + ", Cabines Individuais: " + salaSilenciosa1.isCabinesIndividuais());
+
+        System.out.println("Sala Multimídia 1 - Equipamentos Disponíveis: " + salaMultimidia1.getEquipamentosDisponiveis());
+
+/*
+        Multimidia multimedia1 = new Multimidia(Multimidia.FormatoMultimidia.AUDIO);
+        Multimidia multimedia2 = new Multimidia(Multimidia.FormatoMultimidia.VIDEO);
+        Multimidia multimedia3 = new Multimidia(Multimidia.FormatoMultimidia.SOFTWARE);
+*/
+
+        EventosBiblioteca evento1 = new EventosBiblioteca(EventosBiblioteca.TipoDeEvento.PALESTRA, "Palestra 1", "2023-09-20", "14:00", "Sala A");
+        EventosBiblioteca event2 = new EventosBiblioteca(EventosBiblioteca.TipoDeEvento.WORKSHOP, "Workshop 1", "2023-09-25", "10:00", "Sala B");
+        EventosBiblioteca event3 = new EventosBiblioteca(EventosBiblioteca.TipoDeEvento.EXPOSICAO, "Exposição 1", "2023-09-30", "09:30", "Galeria C");
+
+        System.out.println("Evento 1 - Tipo: " + evento1.getTipo() + ", Tópico: " + evento1.getTopico() + ", Data: " + evento1.getData() + ", Horário: " + evento1.getHorario() + ", Local: " + evento1.getLocal());
+        System.out.println("Evento 2 - Tipo: " + event2.getTipo() + ", Tópico: " + event2.getTopico() + ", Data: " + event2.getData() + ", Horário: " + event2.getHorario() + ", Local: " + event2.getLocal());
+        System.out.println("Evento 3 - Tipo: " + event3.getTipo() + ", Tópico: " + event3.getTopico() + ", Data: " + event3.getData() + ", Horário: " + event3.getHorario() + ", Local: " + event3.getLocal());
+    
+        Equipamentos equipamento1 = new Equipamentos(Equipamentos.CategoriaEquipamento.INFORMATICA);
+        Equipamentos equipamento2 = new Equipamentos(Equipamentos.CategoriaEquipamento.AUDIOVISUAL);
+        Equipamentos equipamento3 = new Equipamentos(Equipamentos.CategoriaEquipamento.IMPRESSAO);
+
+
+        Equipamentos.Informatica informatica1 = equipamento1.new Informatica("Computador", "Modelo X", "PC para uso geral");
+
+        Equipamentos.Audiovisual audiovisual1 = equipamento2.new Audiovisual("Câmera", "Câmera DSLR", "Câmera profissional");
+
+        Equipamentos.Impressao impressao1 = equipamento3.new Impressao("Impressora Laser", "Laser", "Impressora de documentos rápida");
+
+
+        System.out.println("Equipamento 1 - Categoria: " + equipamento1.getCategoria());
+        System.out.println("Equipamento 1 - Informatica: " + informatica1.getNome() + ", " + informatica1.getModelo() + ", " + informatica1.getDescricao());
+
+        System.out.println("Equipamento 2 - Categoria: " + equipamento2.getCategoria());
+        System.out.println("Equipamento 2 - Audiovisual: " + audiovisual1.getNome() + ", " + audiovisual1.getTipo() + ", " + audiovisual1.getDescricao());
+
+        System.out.println("Equipamento 3 - Categoria: " + equipamento3.getCategoria());
+        System.out.println("Equipamento 3 - Impressao: " + impressao1.getNome() + ", " + impressao1.getTipo() + ", " + impressao1.getDescricao());
+
     }
 }

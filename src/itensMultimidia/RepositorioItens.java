@@ -20,20 +20,40 @@ public class RepositorioItens {
         this.repReader = repReader;
     }
 
-    public void overWriteItens(Object objeto) throws FileNotFoundException {
+    private void writeHeaderOnly() throws FileNotFoundException {
+        repWriter.writeHeaderOnly(filePathName, headerNames);
+    }
+
+    private ArrayList<ArrayList<String>> readItems() throws IOException{    
+        return repReader.readItems(filePathName);
+    }
+
+    private ArrayList<ArrayList<String>> removeStringByIndex(ArrayList<ArrayList<String>> stringList, int targetIndex) {
+        ArrayList<ArrayList<String>> csvFileData = new ArrayList<>();
+        for(int i = 0; i < stringList.size(); i++) {
+            if (i != targetIndex) { // + 1 adcionado pro header não ser 
+                csvFileData.add(stringList.get(i));
+            }
+        }
+        return csvFileData;
+    }
+
+    public void overWriteItems(Object objeto) throws FileNotFoundException {
         repWriter.overWriteObjects(objeto, filePathName, headerNames);
     }
 
-    public void overWriteItens(ArrayList<Object> objetos) throws FileNotFoundException{
+    public void overWriteItems(ArrayList<Object> objetos) throws FileNotFoundException{
         repWriter.overWriteObjects(objetos, filePathName, headerNames);
-    }
-
-    public ArrayList<ArrayList<String>> readItems() throws IOException{    
-        return repReader.readItens(filePathName);
     }
 
     public void addItem(Object objeto) throws FileNotFoundException {
         repWriter.addObject(objeto, filePathName, headerNames);
+    }
+
+    public void removeItemByIndex(int targetIndex) throws IOException {
+        ArrayList<ArrayList<String>> csvFileData = removeStringByIndex(readItems(), targetIndex);
+        writeHeaderOnly();
+        repWriter.addMultipleString(csvFileData, filePathName, headerNames);
     }
 
 }
