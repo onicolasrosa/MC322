@@ -42,7 +42,7 @@ public class RepositorioItens {
         repWriter.overWriteObjects(objeto, filePathName, headerNames);
     }
 
-    protected void overWriteItems(ArrayList<Object> objetos) throws FileNotFoundException{
+    public void overWriteItems(ArrayList<Object> objetos) throws FileNotFoundException{
         repWriter.overWriteObjects(objetos, filePathName, headerNames);
     }
 

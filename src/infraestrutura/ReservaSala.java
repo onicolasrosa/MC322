@@ -3,6 +3,10 @@ package src.infraestrutura;
 import java.util.ArrayList;
 
 public class ReservaSala {
+    public enum StatusReserva {
+        PENDENTE, CONFIRMADA, CANCELADA
+    }
+    
     private String dataReserva;
     private String horaInicio;
     private String horaFim;
@@ -13,10 +17,6 @@ public class ReservaSala {
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.status = StatusReserva.PENDENTE;
-    }
-
-    public enum StatusReserva {
-        PENDENTE, CONFIRMADA, CANCELADA
     }
 
     public String getDataReserva() {
