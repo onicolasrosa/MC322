@@ -1,4 +1,4 @@
-package src.gestao;
+package src.repositorio;
 
 class RepositorioGestao {
     

@@ -1,4 +1,4 @@
-package src.funcionarios;
+package src.repositorio;
 
 class RepositorioGestao {
     

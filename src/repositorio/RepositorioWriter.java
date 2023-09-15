@@ -103,15 +103,8 @@ public class RepositorioWriter {
         }
         out.write(csvOutput[headerLenght-1] + "\n");
     }
-    private void writeLine(ArrayList<String> csvOutput, PrintWriter out) {
-        int headerLenght = csvOutput.size();
-        for(int i = 0; i < headerLenght - 1; i++) {
-            out.write(csvOutput.get(i) + ",");
-        }
-        out.write(csvOutput.get(headerLenght-1) + "\n");
-    }
     
-    public void writeObjectString(ArrayList<String> csvOutput, PrintWriter out) {
+    private void writeLine(ArrayList<String> csvOutput, PrintWriter out) {
         int headerLenght = csvOutput.size();
         for(int i = 0; i < headerLenght - 1; i++) {
             out.write(csvOutput.get(i) + ",");
@@ -156,6 +149,21 @@ public class RepositorioWriter {
         }
     }
 
+    public void addMultipleObject(ArrayList<Object> objetos, String pathname, String[] headerNames) throws FileNotFoundException{
+        try(FileWriter fw = new FileWriter(pathname, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw))
+        {
+            for (Object objeto : objetos) {
+                Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
+                writeLine(csvOutput, out);
+            }
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
+
     public void addString(ArrayList<String> csvRow, String pathname, String[] headerNames) throws FileNotFoundException{
         try(FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
@@ -181,5 +189,6 @@ public class RepositorioWriter {
             //exception handling left as an exercise for the reader
         }
     }
+    
     
 }

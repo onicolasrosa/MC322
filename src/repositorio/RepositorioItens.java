@@ -1,11 +1,8 @@
-package src.itensMultimidia;
+package src.repositorio;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import src.repositorio.RepositorioReader;
-import src.repositorio.RepositorioWriter;
 
 public class RepositorioItens {
     private String filePathName = "./files/registro_itens.csv";
@@ -31,7 +28,7 @@ public class RepositorioItens {
     private ArrayList<ArrayList<String>> removeStringByIndex(ArrayList<ArrayList<String>> stringList, int targetIndex) {
         ArrayList<ArrayList<String>> csvFileData = new ArrayList<>();
         for(int i = 0; i < stringList.size(); i++) {
-            if (i != targetIndex) { // + 1 adcionado pro header não ser 
+            if (i != targetIndex) {
                 csvFileData.add(stringList.get(i));
             }
         }

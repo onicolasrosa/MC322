@@ -1,5 +1,6 @@
 package src;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,7 +12,11 @@ import src.itensMultimidia.DVD;
 import src.itensMultimidia.LivroEletronico;
 import src.itensMultimidia.LivroFisico;
 import src.itensMultimidia.RecursoMultimidia;
-import src.itensMultimidia.RepositorioItens;
+import src.membros.EstudanteGraduacao;
+import src.membros.EstudantePosGraduacao;
+import src.membros.Professor;
+import src.repositorio.RepositorioItens;
+import src.repositorio.RepositorioMembros;
 import src.repositorio.RepositorioReader;
 import src.repositorio.RepositorioWriter;
 
@@ -212,6 +217,45 @@ public class Main {
 
         System.out.println("Equipamento 3 - Categoria: " + equipamento3.getCategoria());
         System.out.println("Equipamento 3 - Impressao: " + impressao1.getNome() + ", " + impressao1.getTipo() + ", " + impressao1.getDescricao());
+
+
+        // Criando instâncias de EstudanteGraduacao
+        EstudanteGraduacao estudanteGrad = new EstudanteGraduacao("João", "001", "Rua A", "joao@email.com", "2023-09-13");
+        EstudantePosGraduacao estudantePosGrad = new EstudantePosGraduacao("Maria", "002", "Rua B", "maria@email.com", "2023-09-14");
+        Professor professor = new Professor("Carlos", "003", "Rua C", "carlos@email.com", "2023-09-15");
+
+        // Exemplo de adição de membros ao repositório
+        RepositorioMembros repositorioMembros = new RepositorioMembros(repWriter, repReader);
+
+        try {
+            repositorioMembros.overWriteItems(estudanteGrad);
+            repositorioMembros.addItem(estudantePosGrad);
+            repositorioMembros.addItem(professor);
+        } catch (FileNotFoundException e) {
+            System.err.println("Erro ao adicionar membros: " + e.getMessage());
+        }
+
+        // Exemplo de remoção de membro por índice
+        try {
+            repositorioMembros.removeItemByIndex(1); // Remove o segundo membro (índice 1)
+        } catch (IOException e) {
+            System.err.println("Erro ao remover membro: " + e.getMessage());
+        }
+
+        // Exemplo de sobrescrita (atualização) de membros
+        estudanteGrad.setEndereco("Nova Rua A");
+        estudantePosGrad.setEndereco("Nova Rua B");
+        professor.setEndereco("Nova Rua C");
+
+        try {
+            repositorioMembros.overWriteItems(estudanteGrad);
+            repositorioMembros.addItem(estudantePosGrad);
+            repositorioMembros.addItem(professor);
+        } catch (FileNotFoundException e) {
+            System.err.println("Erro ao sobrescrever membros: " + e.getMessage());
+        }
+
+
 
     }
 }
