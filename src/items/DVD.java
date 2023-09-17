@@ -1,4 +1,4 @@
-package src.itensMultimidia;
+package src.items;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class DVD extends Item {
     }
 
     public DVD(String titulo, String autor, String categoria, String estadoConservacao, 
-                String localizacao, String codigoSerial, String elenco, String duracaoTotal, String legendasAudioDisponiveis) {
+                String localizacao, int codigoSerial, String elenco, String duracaoTotal, String legendasAudioDisponiveis) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.elenco = getStringList(elenco);
         this.duracaoTotal = duracaoTotal;

@@ -1,8 +1,10 @@
 package src.repositorio;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +16,8 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class RepositorioWriter {
-    public RepositorioWriter() {
+public class Driver {
+    public Driver() {
     }
 
     private int indiceHeader(String headerName, String headerNames[]) {
@@ -103,15 +105,8 @@ public class RepositorioWriter {
         }
         out.write(csvOutput[headerLenght-1] + "\n");
     }
-    private void writeLine(ArrayList<String> csvOutput, PrintWriter out) {
-        int headerLenght = csvOutput.size();
-        for(int i = 0; i < headerLenght - 1; i++) {
-            out.write(csvOutput.get(i) + ",");
-        }
-        out.write(csvOutput.get(headerLenght-1) + "\n");
-    }
     
-    public void writeObjectString(ArrayList<String> csvOutput, PrintWriter out) {
+    private void writeLine(ArrayList<String> csvOutput, PrintWriter out) {
         int headerLenght = csvOutput.size();
         for(int i = 0; i < headerLenght - 1; i++) {
             out.write(csvOutput.get(i) + ",");
@@ -125,24 +120,6 @@ public class RepositorioWriter {
         out.close();
     }
 
-    public void overWriteObjects(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException {
-        PrintWriter out = new PrintWriter(new File(pathname));
-        Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
-        writeLine(headerNames, out); //escreve o header no arquivo csv
-        writeLine(csvOutput, out);
-        out.close();
-    }
-
-    public void overWriteObjects(ArrayList<Object> objetos, String pathname, String[] headerNames) throws FileNotFoundException{
-        PrintWriter out = new PrintWriter(new File(pathname));
-        writeLine(headerNames, out); //escreve o header no arquivo csv
-        for(Object objeto : objetos) {
-            Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
-            writeLine(csvOutput, out);
-        }
-        out.close();
-    }
-
     public void addObject(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException{
         try(FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
@@ -150,6 +127,21 @@ public class RepositorioWriter {
         {
             Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
             writeLine(csvOutput, out);
+            out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
+
+    public void addMultipleObject(ArrayList<Object> objetos, String pathname, String[] headerNames) throws FileNotFoundException{
+        try(FileWriter fw = new FileWriter(pathname, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw))
+        {
+            for (Object objeto : objetos) {
+                Object[] csvOutput = getObjectAttributeValues(objeto, headerNames);
+                writeLine(csvOutput, out);
+            }
             out.close();
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
@@ -180,6 +172,18 @@ public class RepositorioWriter {
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
         }
+    }
+    
+    public ArrayList<ArrayList<String>> readItems(String pathname) throws FileNotFoundException, IOException{
+        ArrayList<ArrayList<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(pathname))) {
+            String line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                records.add(new ArrayList<>(Arrays.asList(values)));
+            }
+        }
+        return records; 
     }
     
 }

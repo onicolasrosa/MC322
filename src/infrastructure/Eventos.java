@@ -1,6 +1,10 @@
-package src.infraestrutura;
+package src.infrastructure;
 
-public class EventosBiblioteca {
+import java.util.ArrayList;
+import java.util.List;
+import src.membros.Member;
+
+public class Eventos {
     public enum TipoDeEvento {
         PALESTRA, WORKSHOP, EXPOSICAO
     }
@@ -10,13 +14,15 @@ public class EventosBiblioteca {
     private String data;
     private String horario;
     private String local;
+    private List<Member> membrosParticipantes;
 
-    public EventosBiblioteca(TipoDeEvento tipo, String topico, String data, String horario, String local) {
+    public Eventos(TipoDeEvento tipo, String topico, String data, String horario, String local) {
         this.tipo = tipo;
         this.topico = topico;
         this.data = data;
         this.horario = horario;
         this.local = local;
+        this.membrosParticipantes = new ArrayList<>();
     }
 
     public TipoDeEvento getTipo() {
@@ -58,6 +64,33 @@ public class EventosBiblioteca {
     public void setLocal(String local) {
         this.local = local;
     }
+
+    public List<Member> getMembrosParticipantes() {
+        return membrosParticipantes;
+    }
+
+    public void setMembrosParticipantes(List<Member> membrosParticipantes) {
+        this.membrosParticipantes = membrosParticipantes;
+    }
+
+    public void addMember(Member member) {
+        this.membrosParticipantes.add(member);
+    }
+
+    public Member searchMemberById(int targetID) {
+        for (Member member : this.membrosParticipantes) {
+            if (member.getID() == targetID) {
+                return member;
+            }
+        }
+        System.out.println("No member were found with the following id: " + targetID);
+        return null;
+    }
+
+    public void removeMemberById(int targetID) {
+        this.membrosParticipantes.remove(searchMemberById(targetID));
+    }
+
 
     public class Palestra {
         private String palestrante;
