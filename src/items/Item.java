@@ -1,5 +1,8 @@
 package src.items;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Item {
     private String titulo;
     private String autor;
@@ -8,6 +11,7 @@ public abstract class Item {
     private String localizacao;
     private int serialNumber; //representa a unidade unica de cada item, codigo com 4 letras e 4 numeros
     private boolean disponivel;
+    private List<Comentario> comentarios = new ArrayList<>();
 
     protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
         this.titulo = titulo;
@@ -66,6 +70,20 @@ public abstract class Item {
     }
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public void printComentarios(List<Comentario> comentarios) {
+        for(Comentario comentario : comentarios) {
+            System.out.println(comentario.getTexto());
+        }
     }
 
     @Override
