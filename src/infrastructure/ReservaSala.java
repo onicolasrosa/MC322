@@ -1,4 +1,4 @@
-package src.infraestrutura;
+package src.infrastructure;
 
 import java.util.ArrayList;
 

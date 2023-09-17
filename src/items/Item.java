@@ -1,21 +1,22 @@
-package src.itensMultimidia;
+package src.items;
 
-abstract class Item {
+public abstract class Item {
     private String titulo;
     private String autor;
     private String categoria;
     private String estadoConservacao;
     private String localizacao;
-    private String codigoSerial; //representa a unidade unica de cada item, codigo com 4 letras e 4 numeros
+    private int serialNumber; //representa a unidade unica de cada item, codigo com 4 letras e 4 numeros
     private boolean disponivel;
 
-    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, String codigoSerial) {
+    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
         this.estadoConservacao = estadoConservacao;
         this.localizacao = localizacao;
         this.disponivel = true;
+        this.serialNumber = serialNumber;
     }
 
     public String getTitulo() {
@@ -53,11 +54,11 @@ abstract class Item {
         this.localizacao = localizacao;
     }
 
-    public String getCodigoSerial() {
-        return codigoSerial;
+    public int getserialNumber() {
+        return serialNumber;
     }
-    public void setCodigoSerial(String codigoSerial) {
-        this.codigoSerial = codigoSerial;
+    public void setserialNumber(int serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     public boolean isDisponivel() {
@@ -65,5 +66,18 @@ abstract class Item {
     }
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Titulo: " + getTitulo() + "\n";
+        output += "Autor: " + getAutor() + "\n";
+        output += "Categoria: " + getCategoria() + "\n";
+        output += "Estado de Conservacao: " + getEstadoConservacao() + "\n";
+        output += "Localizacao: " + getLocalizacao() + "\n";
+        output += "Codigo Serial: " + getserialNumber() + "\n";
+        output += "Disponibilidade: " + isDisponivel() + "";
+        return output;
     }
 }

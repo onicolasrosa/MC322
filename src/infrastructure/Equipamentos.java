@@ -1,4 +1,4 @@
-package src.infraestrutura;
+package src.infrastructure;
 
 public class Equipamentos {
     public enum CategoriaEquipamento {
