@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import src.infrastructure.Eventos;
 import src.items.CD;
+import src.items.Comentario;
 import src.items.DVD;
 import src.items.LivroEletronico;
 import src.items.LivroFisico;
@@ -102,5 +103,8 @@ public class Main {
             System.out.println("------------------------------");
         }
 
+        Comentario comentario1 = new Comentario(1, 1, "Este livro é um clássico da literatura!");
+        Comentario comentario2 = new Comentario(2, 1, "Adoro as aventuras de Dom Quixote!");
+        Comentario comentario3 = new Comentario(3, 1, "Miguel de Cervantes é um autor incrível!");
     }
 }
