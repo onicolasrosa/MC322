@@ -80,8 +80,16 @@ public abstract class Item {
         this.comentarios = comentarios;
     }
 
-    public void printComentarios(List<Comentario> comentarios) {
-        for(Comentario comentario : comentarios) {
+    public void addComentario(Comentario comentario) {
+        this.comentarios.add(comentario);
+    }
+
+    public void removeComentario(Comentario comentario) {
+        this.comentarios.remove(comentario);
+    }
+
+    public void printComentarios() {
+        for(Comentario comentario : this.comentarios) {
             System.out.println(comentario.getTexto());
         }
     }

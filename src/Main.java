@@ -103,8 +103,16 @@ public class Main {
             System.out.println("------------------------------");
         }
 
-        Comentario comentario1 = new Comentario(1, 1, "Este livro é um clássico da literatura!");
-        Comentario comentario2 = new Comentario(2, 1, "Adoro as aventuras de Dom Quixote!");
-        Comentario comentario3 = new Comentario(3, 1, "Miguel de Cervantes é um autor incrível!");
+        Comentario comentario1 = new Comentario(1, 0, "Este livro é um clássico da literatura!");
+        Comentario comentario2 = new Comentario(2, 0, "Adoro as aventuras de Dom Quixote!");
+        Comentario comentario3 = new Comentario(3, 0, "Miguel de Cervantes é um autor incrível!");
+    
+        System.out.println(livroFisico1.toString());
+        System.out.println("---------COMENTARIOS----------");
+        livroFisico1.addComentario(comentario1);
+        livroFisico1.addComentario(comentario2);
+        livroFisico1.addComentario(comentario3);
+
+        livroFisico1.printComentarios();
     }
 }
