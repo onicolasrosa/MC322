@@ -1,6 +1,6 @@
 package src.items;
 
-public class LivroFisico extends Item {
+public class LivroFisico extends ItemMultimidia {
     private String isbn;
     private String edicao;
 

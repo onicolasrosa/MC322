@@ -3,16 +3,16 @@ package src.servicos;
 import src.membros.Member;
 import src.repositorio.Driver;
 import src.employees.Employee;
-import src.items.Item;
+import src.items.ItemMultimidia;
 
 public class Servico {
     private Member member;
-    private Item item;
+    private ItemMultimidia item;
     private Employee employee;
     private Driver driver;
     private int processNumber;
 
-    public Servico(Member member, Item item, Employee employee, Driver driver, int processNumber) {
+    public Servico(Member member, ItemMultimidia item, Employee employee, Driver driver, int processNumber) {
         this.member = member;
         this.item = item;
         this.employee = employee;
@@ -28,11 +28,11 @@ public class Servico {
         this.member = member;
     }
 
-    public Item getItem() {
+    public ItemMultimidia getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void setItem(ItemMultimidia item) {
         this.item = item;
     }
 

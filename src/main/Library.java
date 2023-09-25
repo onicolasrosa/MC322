@@ -1,4 +1,4 @@
-package src;
+package src.main;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import src.items.Item;
+import src.Category;
+import src.items.ItemMultimidia;
 import src.membros.Member;
 
 public class Library {
     private List<Member> libraryMembers;
-    private Map<Integer, Item> libraryItems;
+    private Map<Integer, ItemMultimidia> libraryItems;
     private Set<Category> libraryCategories;
 
     public Library() {
@@ -31,11 +32,11 @@ public class Library {
         this.libraryMembers = libraryMembers;
     }
 
-    public Collection<Item> getLibraryItems() {
+    public Collection<ItemMultimidia> getLibraryItems() {
         return libraryItems.values();
     }
 
-    public void setLibraryItems(Map<Integer, Item> libraryItems) {
+    public void setLibraryItems(Map<Integer, ItemMultimidia> libraryItems) {
         this.libraryItems = libraryItems;
     }
 
@@ -95,7 +96,7 @@ public class Library {
         }
     }
 
-    public void addItem(Item item) {
+    public void addItem(ItemMultimidia item) {
         if (containsItem(item.getserialNumber()) == false) {
             this.libraryItems.put(item.getserialNumber(), item);
         } else {
@@ -103,7 +104,7 @@ public class Library {
         }
     }
 
-    public Item searchItemBySN(int targetSN) {
+    public ItemMultimidia searchItemBySN(int targetSN) {
         if (containsItem(targetSN)) {
             return this.libraryItems.get(targetSN);
         } else {

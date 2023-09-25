@@ -3,7 +3,7 @@ package src.items;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Item {
+public abstract class ItemMultimidia {
     private String titulo;
     private String autor;
     private String categoria;
@@ -13,7 +13,7 @@ public abstract class Item {
     private boolean disponivel;
     private List<Comentario> comentarios = new ArrayList<>();
 
-    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
+    protected ItemMultimidia(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
@@ -80,8 +80,16 @@ public abstract class Item {
         this.comentarios = comentarios;
     }
 
-    public void printComentarios(List<Comentario> comentarios) {
-        for(Comentario comentario : comentarios) {
+    public void addComentario(Comentario comentario) {
+        this.comentarios.add(comentario);
+    }
+
+    public void removeComentario(Comentario comentario) {
+        this.comentarios.remove(comentario);
+    }
+
+    public void printComentarios() {
+        for(Comentario comentario : this.comentarios) {
             System.out.println(comentario.getTexto());
         }
     }

@@ -1,6 +1,6 @@
 package src.items;
 
-public class RecursoMultimidia extends Item {
+public class RecursoMultimidia extends ItemMultimidia {
     private String tipoRecurso;
     private String formatoArquivo;
 

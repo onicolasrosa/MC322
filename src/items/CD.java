@@ -2,7 +2,7 @@ package src.items;
 
 import java.util.ArrayList;
 
-public class CD extends Item {
+public class CD extends ItemMultimidia {
     private ArrayList<String> listaFaixas;
     private String duracaoTotal;
 
