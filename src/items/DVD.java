@@ -2,7 +2,7 @@ package src.items;
 
 import java.util.ArrayList;
 
-public class DVD extends Item {
+public class DVD extends ItemMultimidia {
     private ArrayList<String> elenco;
     private String duracaoTotal;
     private String legendasAudioDisponiveis;

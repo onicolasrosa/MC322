@@ -3,7 +3,7 @@ package src.items;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Item {
+public abstract class ItemMultimidia {
     private String titulo;
     private String autor;
     private String categoria;
@@ -13,7 +13,7 @@ public abstract class Item {
     private boolean disponivel;
     private List<Comentario> comentarios = new ArrayList<>();
 
-    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
+    protected ItemMultimidia(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;

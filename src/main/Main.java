@@ -1,7 +1,8 @@
-package src;
+package src.main;
 
 import java.io.IOException;
 
+import src.Category;
 import src.infrastructure.Eventos;
 import src.items.CD;
 import src.items.Comentario;
