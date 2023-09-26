@@ -88,7 +88,7 @@ public class Library {
         this.libraryMembers.remove(searchMemberById(targetID));
     }
 
-    public boolean containsItem(int targetSN) {
+    private boolean containsItem(int targetSN) {
         if (this.libraryItems.containsKey(targetSN)) {
             return true;
         } else {

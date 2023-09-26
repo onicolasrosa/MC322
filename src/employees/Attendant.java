@@ -1,8 +1,8 @@
 package src.employees;
 
 public class Attendant extends Employee {
-    protected Attendant(String nome, String ID, String endereco, String contato, String dataRegistro) {
-        super(nome, ID, endereco, contato, dataRegistro);
+    public Attendant(String nome, int ID, String endereco, String contato, String dataRegistro, String login, String password) {
+        super(nome, ID, endereco, contato, dataRegistro, login, password);
     }
     
 }

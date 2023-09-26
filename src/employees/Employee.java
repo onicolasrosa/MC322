@@ -2,17 +2,22 @@ package src.employees;
 
 public abstract class Employee {
     private String nome;
-    private String ID;
+    private int ID;
     private String endereco;
     private String contato;
     private String dataRegistro;
+    private String login;
+    private String password;
 
-    protected Employee(String nome, String ID, String endereco, String contato, String dataRegistro) {
+    protected Employee(String nome, int iD, String endereco, String contato, String dataRegistro, 
+    String login, String password) {
         this.nome = nome;
-        this.ID = ID;
+        this.ID = iD;
         this.endereco = endereco;
         this.contato = contato;
         this.dataRegistro = dataRegistro;
+        this.login = login;
+        this.password = password;
     }
 
     public String getNome() {
@@ -23,12 +28,12 @@ public abstract class Employee {
         this.nome = nome;
     }
 
-    public String getID() {
-        return ID;
+    public int getID() {
+        return this.ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(int iD) {
+        this.ID = iD;
     }
 
     public String getEndereco() {
@@ -53,6 +58,22 @@ public abstract class Employee {
 
     public void setDataRegistro(String dataRegistro) {
         this.dataRegistro = dataRegistro;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

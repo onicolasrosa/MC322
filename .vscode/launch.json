@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "src.main.Main",
+            "projectName": "MC322_c38e31cc"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "src.Main",
             "projectName": "MC322_c38e31cc"
         },
