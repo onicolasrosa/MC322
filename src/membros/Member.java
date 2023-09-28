@@ -1,13 +1,13 @@
-package src.funcionarios;
+package src.membros;
 
-abstract class Funcionario {
+public abstract class Member {
     private String nome;
-    private String ID;
+    private int ID;
     private String endereco;
     private String contato;
     private String dataRegistro;
 
-    protected Funcionario(String nome, String ID, String endereco, String contato, String dataRegistro) {
+    protected Member(String nome, int ID, String endereco, String contato, String dataRegistro) {
         this.nome = nome;
         this.ID = ID;
         this.endereco = endereco;
@@ -23,11 +23,11 @@ abstract class Funcionario {
         this.nome = nome;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
@@ -53,5 +53,16 @@ abstract class Funcionario {
 
     public void setDataRegistro(String dataRegistro) {
         this.dataRegistro = dataRegistro;
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Nome: " + getNome() + "\n";
+        output += "ID: " + getID() + "\n";
+        output += "Endereço: " + getEndereco() + "\n";
+        output += "Contato: " + getContato() + "\n";
+        output += "Data de Registro: " + getDataRegistro() + "";
+        return output;
     }
 }

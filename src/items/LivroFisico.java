@@ -1,11 +1,11 @@
-package src.itensMultimidia;
+package src.items;
 
-public class LivroFisico extends Item {
+public class LivroFisico extends ItemMultimidia {
     private String isbn;
     private String edicao;
 
     public LivroFisico(String titulo, String autor, String categoria, String estadoConservacao, 
-                        String localizacao, String codigoSerial, String isbn, String edicao) {
+                        String localizacao, int codigoSerial, String isbn, String edicao) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.isbn = isbn;
         this.edicao = edicao;

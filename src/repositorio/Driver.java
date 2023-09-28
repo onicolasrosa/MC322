@@ -114,13 +114,13 @@ public class Driver {
         out.write(csvOutput.get(headerLenght-1) + "\n");
     }
 
-    protected void writeHeaderOnly(String pathname, String[] headerNames) throws FileNotFoundException {
+    public void writeHeaderOnly(String pathname, String[] headerNames) throws FileNotFoundException {
         PrintWriter out = new PrintWriter(new File(pathname));
         writeLine(headerNames, out); //escreve o header no arquivo csv
         out.close();
     }
 
-    protected void addObject(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException{
+    public void addObject(Object objeto, String pathname, String[] headerNames) throws FileNotFoundException{
         try(FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw))
@@ -133,7 +133,7 @@ public class Driver {
         }
     }
 
-    protected void addMultipleObject(ArrayList<Object> objetos, String pathname, String[] headerNames) throws FileNotFoundException{
+    public void addMultipleObject(ArrayList<Object> objetos, String pathname, String[] headerNames) throws FileNotFoundException{
         try(FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw))
@@ -148,7 +148,7 @@ public class Driver {
         }
     }
 
-    protected void addString(ArrayList<String> csvRow, String pathname, String[] headerNames) throws FileNotFoundException{
+    public void addString(ArrayList<String> csvRow, String pathname, String[] headerNames) throws FileNotFoundException{
         try(FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw))
@@ -160,7 +160,7 @@ public class Driver {
         }
     }
 
-    protected void addMultipleString(ArrayList<ArrayList<String>> csvMultipleRow, String pathname, String[] headerNames) throws FileNotFoundException{
+    public void addMultipleString(ArrayList<ArrayList<String>> csvMultipleRow, String pathname, String[] headerNames) throws FileNotFoundException{
         try(FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw))
@@ -174,7 +174,7 @@ public class Driver {
         }
     }
     
-    protected ArrayList<ArrayList<String>> readItems(String pathname) throws FileNotFoundException, IOException{
+    public ArrayList<ArrayList<String>> readItems(String pathname) throws FileNotFoundException, IOException{
         ArrayList<ArrayList<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(pathname))) {
             String line = br.readLine();

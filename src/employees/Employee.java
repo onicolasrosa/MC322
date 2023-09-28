@@ -1,13 +1,13 @@
-package src.membros;
+package src.employees;
 
-abstract class Membro {
+public abstract class Employee {
     private String nome;
     private String ID;
     private String endereco;
     private String contato;
     private String dataRegistro;
 
-    protected Membro(String nome, String ID, String endereco, String contato, String dataRegistro) {
+    protected Employee(String nome, String ID, String endereco, String contato, String dataRegistro) {
         this.nome = nome;
         this.ID = ID;
         this.endereco = endereco;
@@ -53,5 +53,16 @@ abstract class Membro {
 
     public void setDataRegistro(String dataRegistro) {
         this.dataRegistro = dataRegistro;
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Nome: " + getNome() + "\n";
+        output += "ID: " + getID() + "\n";
+        output += "Endereço: " + getEndereco() + "\n";
+        output += "Contato: " + getContato() + "\n";
+        output += "Data de Registro: " + getDataRegistro() + "\n";
+        return output;
     }
 }

@@ -1,11 +1,11 @@
-package src.itensMultimidia;
+package src.items;
 
-public class RecursoMultimidia extends Item {
+public class RecursoMultimidia extends ItemMultimidia {
     private String tipoRecurso;
     private String formatoArquivo;
 
     public RecursoMultimidia(String titulo, String autor, String categoria, String estadoConservacao, 
-                                String localizacao, String codigoSerial, String tipoRecurso, String formatoArquivo) {
+                                String localizacao, int codigoSerial, String tipoRecurso, String formatoArquivo) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.tipoRecurso = tipoRecurso;
         this.formatoArquivo = formatoArquivo;

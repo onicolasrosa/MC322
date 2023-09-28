@@ -1,13 +1,13 @@
-package src.itensMultimidia;
+package src.items;
 
-public class LivroEletronico extends Item {
+public class LivroEletronico extends ItemMultimidia {
     private String edicao;
     private String formatoArquivo;
     private String requisitosLeitura;
     private String dataDisponibilidade;
 
 
-    public LivroEletronico(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, String codigoSerial,
+    public LivroEletronico(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int codigoSerial,
                             String edicao, String formatoArquivo, String requisitosLeitura, String dataDisponibilidade) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.edicao = edicao;
