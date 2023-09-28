@@ -1,7 +1,9 @@
-package src.entrypoints.main;
+package src.configuration;
 
 import java.io.IOException;
 
+import src.configuration.main.Library;
+import src.configuration.main.resources.Category;
 import src.core.entities.infrastructure.Events;
 import src.core.entities.items.Book;
 import src.core.entities.items.CD;
@@ -12,7 +14,6 @@ import src.core.entities.members.GraduateStudent;
 import src.core.entities.members.Member;
 import src.core.entities.members.Teacher;
 import src.core.entities.members.UndergraduateStudent;
-import src.entrypoints.main.resources.Category;
 
 
 public class Main {

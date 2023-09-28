@@ -1,4 +1,4 @@
-package src.entrypoints.main.resources;
+package src.configuration.main.resources;
 
 public enum Category {
     /* Categorias da biblioteca segundo o sistema de Classificação Decimal de Dewey (CDD) */

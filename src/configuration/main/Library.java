@@ -1,4 +1,4 @@
-package src.entrypoints.main;
+package src.configuration.main;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import src.configuration.main.resources.Category;
 import src.core.entities.items.MultimediaItem;
 import src.core.entities.members.Member;
-import src.entrypoints.main.resources.Category;
 
 public class Library {
     private List<Member> libraryMembers;
