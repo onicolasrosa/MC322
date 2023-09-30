@@ -1,0 +1,7 @@
+1 - All functions declared in interfaces must be implemented
+2 - Default functions inside interfaces dont need to be implemented, but can be
+3 - Variables can be declared in interfaces and used by classes
+4 - All variables declared in interfaces are public static final.
+5 - Interfaces can be extended
+6 - Static functions implemented in interfaces can only be used by classes that implements the interface
+7 - Private functions can be called by default functions inside interfaces
