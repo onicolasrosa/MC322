@@ -1,9 +1,8 @@
-package src.configuration;
+/*
+package src.configuration.main;
 
 import java.io.IOException;
 
-import src.configuration.main.Library;
-import src.configuration.main.resources.Category;
 import src.core.entities.infrastructure.Events;
 import src.core.entities.items.Book;
 import src.core.entities.items.CD;
@@ -16,7 +15,7 @@ import src.core.entities.members.Teacher;
 import src.core.entities.members.UndergraduateStudent;
 
 
-public class Main {
+public class OldMain {
     public static String[] itemsHeaderNames = new String[]{"classe", "titulo", "autor", "categoria", "estadoConservacao", "localizacao", "codigoSerial", "disponivel",
                                 "listaFaixas", "duracaoTotal", "elenco", "legendasAudioDisponiveis", "isbn", "edicao", "formatoArquivo",
                                 "requisitosLeitura", "dataDisponibilidade", "tipoRecurso"};
@@ -78,6 +77,8 @@ public class Main {
         biblioteca.addItem(dvd1);
         biblioteca.addItem(dvd2);
 
+        /*
+        /*
         biblioteca.printLibraryObject(biblioteca);
         for (Object member : biblioteca.getLibraryMembers()) {
             biblioteca.printLibraryObject(member);
@@ -95,7 +96,8 @@ public class Main {
             System.out.println(categoria.toString());
             System.out.println("------------------------------");
         }
-
+        */
+        /*
         Events eventoPalestra = new Events(Events.TipoDeEvento.PALESTRA, "Tópico da Palestra", "2023-09-16", "10:00", "Local da Palestra");
         for (Member member : biblioteca.getLibraryMembers()) {
             eventoPalestra.addMember(member);
@@ -115,6 +117,6 @@ public class Main {
         livroFisico1.addComentario(comentario2);
         livroFisico1.addComentario(comentario3);
 
-        livroFisico1.printComentarios();
     }
 }
+*/

@@ -1,8 +1,6 @@
 package src.configuration.main;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -10,12 +8,12 @@ import java.util.Map;
 import java.util.Set;
 
 import src.configuration.main.resources.Category;
-import src.core.entities.items.MultimediaItem;
+import src.core.entities.items.Item;
 import src.core.entities.members.Member;
 
 public class Library {
     private List<Member> libraryMembers;
-    private Map<Integer, MultimediaItem> libraryItems;
+    private Map<Integer, Item> libraryItems;
     private Set<Category> libraryCategories;
 
     public Library() {
@@ -32,12 +30,20 @@ public class Library {
         this.libraryMembers = libraryMembers;
     }
 
-    public Collection<MultimediaItem> getLibraryItems() {
-        return libraryItems.values();
+    public Map<Integer, Item> getLibraryItems() {
+        return libraryItems;
     }
 
-    public void setLibraryItems(Map<Integer, MultimediaItem> libraryItems) {
+    public void setLibraryItems(Map<Integer, Item> libraryItems) {
         this.libraryItems = libraryItems;
+    }
+
+    public void addItem(Item item) {
+        this.libraryItems.put(item.getserialNumber(), item);
+    }
+
+    public void removeItem(Item item) {
+        this.libraryItems.remove(item.getserialNumber());
     }
 
     public Set<Category> getLibraryCategories() {
@@ -56,22 +62,12 @@ public class Library {
         this.libraryCategories.remove(libraryCategories);
     }
 
-    public void printLibraryObject(Object objeto) throws IllegalArgumentException, IllegalAccessException {
-        Class<?> classeAtual = objeto.getClass();
-        
-        while (classeAtual != null) {
-            Field[] atributos = classeAtual.getDeclaredFields();
-            
-            for (Field atributo : atributos) {
-                atributo.setAccessible(true); //deixa campos privados acessiveis se necessario
-                System.out.println(atributo.getName() + ": " + atributo.get(objeto));
-            }
-            classeAtual = classeAtual.getSuperclass();
-        }
-    }
-    
     public void addMember(Member member) {
         this.libraryMembers.add(member);
+    }
+
+    public void removeMember(Member member) {
+        this.libraryMembers.remove(member);
     }
 
     public Member searchMemberById(int targetID) {
@@ -86,39 +82,6 @@ public class Library {
 
     public void removeMemberById(int targetID) {
         this.libraryMembers.remove(searchMemberById(targetID));
-    }
-
-    private boolean containsItem(int targetSN) {
-        if (this.libraryItems.containsKey(targetSN)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void addItem(MultimediaItem item) {
-        if (containsItem(item.getserialNumber()) == false) {
-            this.libraryItems.put(item.getserialNumber(), item);
-        } else {
-            System.out.println("An item with the following serial number already exists: " + item.getserialNumber());
-        }
-    }
-
-    public MultimediaItem searchItemBySN(int targetSN) {
-        if (containsItem(targetSN)) {
-            return this.libraryItems.get(targetSN);
-        } else {
-            System.out.println("No items were found with the following serial number: " + targetSN);
-            return null;
-        }
-    }
-
-    public void removeItemBySN(int targetSN) {
-        if (containsItem(targetSN)) {
-            this.libraryItems.remove(targetSN);
-        } else {
-            System.out.println("No items were found with the following serial number: " + targetSN);
-        }
     }
 
 }

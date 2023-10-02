@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "src.configuration.main.Main",
+            "projectName": "MC322_b163028a"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "src.configuration.Main",
             "projectName": "MC322_b163028a"
         },

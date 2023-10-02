@@ -5,7 +5,7 @@ import java.util.List;
 
 import src.core.entities.items.resources.Comment;
 
-public abstract class MultimediaItem {
+public abstract class Item {
     private String titulo;
     private String autor;
     private String categoria;
@@ -15,7 +15,7 @@ public abstract class MultimediaItem {
     private boolean disponivel;
     private List<Comment> comentarios = new ArrayList<>();
 
-    protected MultimediaItem(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
+    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
@@ -88,12 +88,6 @@ public abstract class MultimediaItem {
 
     public void removeComentario(Comment comentario) {
         this.comentarios.remove(comentario);
-    }
-
-    public void printComentarios() {
-        for(Comment comentario : this.comentarios) {
-            System.out.println(comentario.getTexto());
-        }
     }
 
     @Override
