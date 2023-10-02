@@ -1,6 +1,6 @@
 package src.core.entities.items;
 
-public class MultimediaResource extends MultimediaItem {
+public class MultimediaResource extends Item {
     private String tipoRecurso;
     private String formatoArquivo;
 

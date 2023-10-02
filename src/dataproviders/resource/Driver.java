@@ -76,7 +76,7 @@ public class Driver {
             Field[] atributos = classeAtual.getDeclaredFields();
             for (Field atributo : atributos) {
                 try {
-                    atributo.setAccessible(true); //deixa campos privados acessiveis se necessario
+                    atributo.setAccessible(true);
                     Object value = atributo.get(objeto);
                     //System.out.println("Attribute Name: " + attributeName);
                     //System.out.println("Attribute Value: " + atributo.get(objeto));
@@ -116,7 +116,7 @@ public class Driver {
 
     public void writeHeaderOnly(String pathname, String[] headerNames) throws FileNotFoundException {
         PrintWriter out = new PrintWriter(new File(pathname));
-        writeLine(headerNames, out); //escreve o header no arquivo csv
+        writeLine(headerNames, out);
         out.close();
     }
 
@@ -129,7 +129,7 @@ public class Driver {
             writeLine(csvOutput, out);
             out.close();
         } catch (IOException e) {
-            //exception handling left as an exercise for the reader
+            //Write Exception Handling
         }
     }
 
@@ -144,7 +144,7 @@ public class Driver {
             }
             out.close();
         } catch (IOException e) {
-            //exception handling left as an exercise for the reader
+            //Write Exception Handling
         }
     }
 

@@ -3,7 +3,7 @@ package src.core.entities.items;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryItem<T extends MultimediaItem> {
+public class LibraryItem<T extends Item> {
     private List<T> itensReservados;
     private List<T> itensEmprestados;
     private int numItensEmpresados;

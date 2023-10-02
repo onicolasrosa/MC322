@@ -1,6 +1,6 @@
 package src.core.entities.items;
 
-public class EBook extends MultimediaItem {
+public class EBook extends Item {
     private String edicao;
     private String formatoArquivo;
     private String requisitosLeitura;

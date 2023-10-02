@@ -2,7 +2,7 @@ package src.core.entities.items;
 
 import java.util.ArrayList;
 
-public class CD extends MultimediaItem {
+public class CD extends Item {
     private ArrayList<String> listaFaixas;
     private String duracaoTotal;
 

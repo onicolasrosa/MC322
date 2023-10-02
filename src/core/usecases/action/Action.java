@@ -1,7 +1,7 @@
 package src.core.usecases.action;
 
 import src.core.entities.employees.Employee;
-import src.core.entities.items.MultimediaItem;
+import src.core.entities.items.Item;
 import src.core.entities.members.Member;
 
 /*
@@ -12,10 +12,10 @@ alem disso, contem as logicas de negocio
 
 public class Action {
     private Member member;
-    private MultimediaItem item;
+    private Item item;
     private Employee employee;
 
-    public Action(Member member, MultimediaItem item, Employee employee) {
+    public Action(Member member, Item item, Employee employee) {
         this.member = member;
         this.item = item;
         this.employee = employee;
@@ -27,10 +27,10 @@ public class Action {
     public void setMember(Member member) {
         this.member = member;
     }
-    public MultimediaItem getItem() {
+    public Item getItem() {
         return item;
     }
-    public void setItem(MultimediaItem item) {
+    public void setItem(Item item) {
         this.item = item;
     }
     public Employee getEmployee() {
