@@ -1,0 +1,11 @@
+classe,titulo,autor,categoria,estadoConservacao,localizacao,codigoSerial,disponivel,listaFaixas,duracaoTotal,elenco,legendasAudioDisponiveis,isbn,edicao,formatoArquivo,requisitosLeitura,dataDisponibilidade,tipoRecurso
+LivroFisico,Dom Quixote,Miguel de Cervantes,Livro Clássico,Bom,Estante4,null,true,empty,empty,empty,empty,ISBN123456,1ª Edição,empty,empty,empty,empty
+LivroEletronico,A História da Ciência,Carl Sagan,Livro,Excelente,Estante3,null,true,empty,empty,empty,empty,empty,Primeira,ePub,Requisitos mínimos: Leitor de ePub,2023-09-15,empty
+CD,Álbum de Rock Clássico,Banda Clássica,Música,Excelente,Estante1,null,true,Bohemian Rhapsody| Hotel California| Stairway to Heaven,,50 minutos,empty,empty,empty,empty,empty,empty,empty,empty
+CD,Álbum de Jazz,Miles Davis,Música,Ótimo,Estante1,null,true,So What| All Blues| Blue in Green,,42 minutos,empty,empty,empty,empty,empty,empty,empty,empty
+DVD,Filme de Ação,Diretor Famoso,Filme,Ótimo,Estante2,null,true,empty,140 minutos,Brad Pitt| Angelina Jolie,,Português, Inglês,empty,empty,empty,empty,empty,empty
+DVD,Filme de Comédia,Diretor Cômico,Filme,Bom,Estante2,null,true,empty,96 minutos,Jim Carrey| Jennifer Aniston,,Português, Inglês,empty,empty,empty,empty,empty,empty
+RecursoMultimidia,Apresentação em Slides,Autor da Apresentação,Educação,Bom,Estante5,null,true,empty,empty,empty,empty,empty,empty,PPT,empty,empty,Slides
+RecursoMultimidia,Tutorial em Vídeo,Instrutor de Vídeo,Educação,Excelente,Estante6,null,true,empty,empty,empty,empty,empty,empty,MP4,empty,empty,Vídeo
+LivroFisico,Dom Quixote,Miguel de Cervantes,Livro Clássico,Bom,Estante4,null,true,empty,empty,empty,empty,ISBN123456,1ª Edição,empty,empty,empty,empty
+LivroFisico,Dom Quixote,Miguel de Cervantes,Livro Clássico,Bom,Estante4,null,true,empty,empty,empty,empty,ISBN123456,1ª Edição,empty,empty,empty,empty
