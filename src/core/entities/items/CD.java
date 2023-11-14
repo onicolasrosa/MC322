@@ -9,14 +9,14 @@ public class CD extends Item {
     private ArrayList<String> getStringList(String listaString) {
         ArrayList<String> output = new ArrayList<>();
         String[] temp = listaString.split(";");
-        for(String elemento : temp) {
+        for (String elemento : temp) {
             output.add(elemento);
         }
         return output;
     }
 
     public CD(String titulo, String autor, String categoria, String estadoConservacao,
-              String localizacao, int codigoSerial, String listaFaixas, String duracaoTotal) {
+            String localizacao, int codigoSerial, String listaFaixas, String duracaoTotal) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.listaFaixas = getStringList(listaFaixas);
         this.duracaoTotal = duracaoTotal;

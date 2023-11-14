@@ -67,5 +67,4 @@ public class LibraryItem<T extends Item> {
 
     }
 
-    
 }

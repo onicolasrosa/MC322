@@ -11,11 +11,12 @@ public abstract class Item {
     private String categoria;
     private String estadoConservacao;
     private String localizacao;
-    private int serialNumber; //representa a unidade unica de cada item, codigo com 4 letras e 4 numeros
+    private int serialNumber; // representa a unidade unica de cada item, codigo com 4 letras e 4 numeros
     private boolean disponivel;
     private List<Comment> comentarios = new ArrayList<>();
 
-    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao, int serialNumber) {
+    protected Item(String titulo, String autor, String categoria, String estadoConservacao, String localizacao,
+            int serialNumber) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
@@ -28,6 +29,7 @@ public abstract class Item {
     public String getTitulo() {
         return titulo;
     }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -35,13 +37,15 @@ public abstract class Item {
     public String getAutor() {
         return autor;
     }
+
     public void setAutor(String autor) {
         this.autor = autor;
     }
-    
+
     public String getCategoria() {
         return categoria;
     }
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
@@ -49,6 +53,7 @@ public abstract class Item {
     public String getEstadoConservacao() {
         return estadoConservacao;
     }
+
     public void setEstadoConservacao(String estadoConservacao) {
         this.estadoConservacao = estadoConservacao;
     }
@@ -56,6 +61,7 @@ public abstract class Item {
     public String getLocalizacao() {
         return localizacao;
     }
+
     public void setLocalizacao(String localizacao) {
         this.localizacao = localizacao;
     }
@@ -63,6 +69,7 @@ public abstract class Item {
     public int getserialNumber() {
         return serialNumber;
     }
+
     public void setserialNumber(int serialNumber) {
         this.serialNumber = serialNumber;
     }
@@ -70,6 +77,7 @@ public abstract class Item {
     public boolean isDisponivel() {
         return disponivel;
     }
+
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }

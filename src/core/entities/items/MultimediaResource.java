@@ -4,8 +4,8 @@ public class MultimediaResource extends Item {
     private String tipoRecurso;
     private String formatoArquivo;
 
-    public MultimediaResource(String titulo, String autor, String categoria, String estadoConservacao, 
-                                String localizacao, int codigoSerial, String tipoRecurso, String formatoArquivo) {
+    public MultimediaResource(String titulo, String autor, String categoria, String estadoConservacao,
+            String localizacao, int codigoSerial, String tipoRecurso, String formatoArquivo) {
         super(titulo, autor, categoria, estadoConservacao, localizacao, codigoSerial);
         this.tipoRecurso = tipoRecurso;
         this.formatoArquivo = formatoArquivo;
